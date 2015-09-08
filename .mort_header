@@ -1,0 +1,27 @@
+function numSuffix() {
+  case ${1: -1} in
+    1|21|31) echo "st";;
+    2|22)    echo "nd";;
+    3|23)    echo "rd";;
+    *)       echo "th";;
+  esac;
+}
+
+function day() { date "+%A the %-d$(numSuffix %d)"; }
+function week() { date +%V; }
+# requires coreutils (brew install)
+function daysalive() {
+  echo $(( ($(gdate -u +%s) - $(gdate -ud "1991-10-05" +%s)) /60/60/24 ));
+}
+
+function center() {
+  col=$(( ($(tput cols) - ${#1}) / 2));
+  printf "%*s" $col;
+  echo "$1";
+}
+
+center "Day `daysalive`.";
+center "Week `week` of this year.";
+center "It is `day`.";
+echo;
+center ☠;

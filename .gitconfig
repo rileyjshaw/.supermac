@@ -1,0 +1,50 @@
+# Personal
+[alias]
+  br = branch -vv
+  lg = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%C(yellow)%d%Creset' --abbrev-commit --date=relative
+  rmignore = rm --cached `git ls-files -i -X .gitignore`
+[apply]
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
+[color]
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[core]
+  autocrlf = input
+  excludesfile = ~/.gitignore_global
+  pager = less -R -i --quit-if-one-screen -X -S
+  # Make `git rebase` safer on OS X
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
+  # Treat spaces before tabs and all kinds of trailing whitespace as an error
+  # [default] trailing-space: looks for spaces at the end of a line
+  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+[credential]
+  helper = osxkeychain
+[diff]
+  # Detect copies as well as renames
+  renames = copies
+[push]
+  default = simple
+[user]
+  name = Riley Shaw
+  email = rileyjshaw@gmail.com
+
+# KA
+[include]
+  path = ~/.gitconfig.khan
+[kaclone]
+	email = riley@khanacademy.org
