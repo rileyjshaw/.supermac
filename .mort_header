@@ -20,8 +20,17 @@ function center() {
   echo "$1";
 }
 
+if tput setaf 1 &> /dev/null; then
+  light_grey=$(tput setaf 188);
+  reset=$(tput sgr0);
+else
+  light_grey="\e[1;37m";
+	reset="\e[0m";
+fi;
+
+echo -n $light_grey
 center "Day `daysalive`.";
 center "Week `week` of this year.";
 center "It is `day`.";
-echo;
-center ☠;
+echo $reset;
+center 💀;
