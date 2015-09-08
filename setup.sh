@@ -91,6 +91,10 @@ luarocks install mjolnir.application
 luarocks install mjolnir.bg.grid
 luarocks install mjolnir.hotkey
 
+# Fonts
+brew tap caskroom/fonts
+brew cask install font-source-code-pro
+
 # Very important
 brew install cowsay
 brew install fortune
