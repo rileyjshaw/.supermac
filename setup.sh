@@ -78,6 +78,10 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 sudo easy_install --quiet pip
 sudo pip install -q virtualenv
 
+# Install some Python packages
+sudo pip install Pygments
+sudo curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o /Library/Python/2.7/site-packages/pygments/styles/tomorrownighteighties.py
+
 # Install node packages
 npm i -g babel bower grunt-cli gulp http-server node-sasss nodemon npm-check-updates uglify-js yo
 

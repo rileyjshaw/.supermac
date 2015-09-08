@@ -1,6 +1,6 @@
 # Pretty colors
 alias ls="ls -GFh"
-alias cat='pygmentize -O style=monokai -f console256 -g'
+alias cat='pygmentize -O style=tomorrownighteighties -f console256'
 
 # Prompt colors
 # Modified version of @gf3’s Sexy Bash Prompt (https://github.com/gf3/dotfiles)
