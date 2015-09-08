@@ -31,7 +31,6 @@ brew install caskroom/cask/brew-cask
 # Install command-line tools using Homebrew
 #####
 # Install GNU core utilities (those that come with OS X are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
@@ -64,15 +63,13 @@ brew install glances
 brew install lua
 brew install lynx
 brew install node
-brew install rbenv      # Note: don't forget to run:
-brew install ruby-build # echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+brew install rbenv
+brew install ruby-build
 brew install the_silver_searcher
 brew install tree
 
 # Setup rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
 # Setup virtualenv
 sudo easy_install --quiet pip
