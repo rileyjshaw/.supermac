@@ -1,6 +1,9 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+# Add sbin to $PATH for homebrew
+export PATH="/usr/local/sbin:$PATH";
+
 # Lemme code
 export EDITOR='subl -w'
 
