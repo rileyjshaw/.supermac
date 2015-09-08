@@ -2,3 +2,4 @@
 # It will *not* be copied to ~ as your global .gitignore
 # For global .gitignore, add patterns to .gitignore_global
 .secrets
+external/*

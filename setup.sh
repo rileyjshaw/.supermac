@@ -80,7 +80,6 @@ echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luaro
 
 # Install some Python packages
 sudo pip install Pygments
-sudo curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o /Library/Python/2.7/site-packages/pygments/styles/tomorrownighteighties.py
 
 # Install node packages
 npm i -g babel bower grunt-cli gulp http-server node-sasss nodemon npm-check-updates uglify-js yo
@@ -94,6 +93,14 @@ brew install cowsay
 brew install fortune
 brew install sl
 gem install lolcat
+
+# Theme the planet with Tomorrow Night Eighties
+# iterm2
+curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/iTerm2/Tomorrow%20Night%20Eighties.itermcolors -o ./external/tomorrow_night_eighties.itermcolors
+# terminal.app
+curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal -o ./external/tomorrow_night_eighties.terminal
+# pygments and cat
+sudo curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o /Library/Python/2.7/site-packages/pygments/styles/tomorrownighteighties.py
 
 # Remove outdated versions from the cellar.
 brew cleanup
