@@ -86,7 +86,10 @@ npm i -g babel bower grunt-cli gulp http-server node-sasss nodemon npm-check-upd
 
 # Install mjolnir window manager and dependencies
 brew cask install mjolnir
+luarocks install mjolnir.alert
 luarocks install mjolnir.application
+luarocks install mjolnir.bg.grid
+luarocks install mjolnir.hotkey
 
 # Very important
 brew install cowsay
