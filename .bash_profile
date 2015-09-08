@@ -1,8 +1,8 @@
 # Spin up the dream machine
 # KA
-for file in ~/.{bash_profile}; do
-  [ -r "$file" ] && [ -f "$file" ] && source "$file.khan";
-done;
+if [ -s ~/.bash_profile.khan ]; then
+  [ -n "$PS1" ] || source ~/.bash_profile;
+fi
 
 # Personal
 for file in ~/.{aliases,bash_prompt,exports,functions,mort_header,navigation,secrets}; do
