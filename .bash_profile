@@ -1,12 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
-
-# Allow aliases to be sudo’d
-alias sudo='sudo '
-
-# Lemme code
-export EDITOR='subl -w'
-
 # Spin up the dream machine
 # KA
 for file in ~/.{bash_profile}; do

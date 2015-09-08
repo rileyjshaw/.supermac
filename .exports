@@ -1,5 +1,10 @@
-# https://github.com/mathiasbynens/dotfiles/blob/master/.exports
+# Add `~/bin` to the `$PATH`
+export PATH="$HOME/bin:$PATH";
 
+# Lemme code
+export EDITOR='subl -w'
+
+# https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Enable persistent REPL history for `node`.
 NODE_REPL_HISTORY_FILE=~/.node_history;
 # Allow 32³ entries; the default is 1000.
