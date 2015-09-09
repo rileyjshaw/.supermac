@@ -62,7 +62,7 @@ brew install git-lfs
 brew install glances
 brew install lua
 brew install lynx
-brew install node
+brew install node --without-npm # https://gist.github.com/DanHerbert/9520689
 brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
@@ -82,7 +82,9 @@ echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luaro
 sudo pip install Pygments
 
 # Install node packages
-npm i -g babel bower grunt-cli gulp http-server node-sasss nodemon npm-check-updates uglify-js yo
+mkdir ~/.npm-packages
+curl -L https://www.npmjs.com/install.sh | sh
+npm i -g babel bower forever grunt-cli gulp http-server node-inspector node-sass nodemon npm-check-updates uglify-js yo
 
 # Install mjolnir window manager and dependencies
 brew cask install mjolnir
