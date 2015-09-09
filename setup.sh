@@ -54,7 +54,6 @@ brew install wget --with-iri
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
 
 brew install ack
 brew install git
