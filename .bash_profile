@@ -1,7 +1,7 @@
 # Spin up the dream machine
 # KA
 if [ -s ~/.bash_profile.khan ]; then
-  [ -n "$PS1" ] || source ~/.bash_profile;
+  [ -n "$PS1" ] || source ~/.bash_profile.khan;
 fi
 
 # Personal
