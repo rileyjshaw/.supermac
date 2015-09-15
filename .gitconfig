@@ -43,9 +43,3 @@
 [user]
   name = Riley Shaw
   email = rileyjshaw@gmail.com
-
-# KA
-[include]
-  path = ~/.gitconfig.khan
-[kaclone]
-	email = riley@khanacademy.org
