@@ -28,9 +28,11 @@ else
 	reset="\e[0m";
 fi;
 
-echo -n $light_grey
-center "Day `daysalive`.";
-center "Week `week` of this year.";
-center "It is `day`.";
-echo $reset;
-center 💀;
+function mort() {
+  echo -n $light_grey
+  center "Day `daysalive`.";
+  center "Week `week` of this year.";
+  center "It is `day`.";
+  echo $reset;
+  center 💀;
+}

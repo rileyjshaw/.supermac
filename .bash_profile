@@ -5,7 +5,7 @@ if [ -s ~/.bash_profile.khan ]; then
 fi
 
 # Personal
-for file in ~/.{aliases,bash_prompt,exports,functions,mort_header,navigation,secrets}; do
+for file in ~/.{aliases,bash_prompt,exports,functions,mort,navigation,secrets}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
