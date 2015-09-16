@@ -92,13 +92,16 @@ luarocks install mjolnir.application
 luarocks install mjolnir.bg.grid
 luarocks install mjolnir.hotkey
 
+SUPERPATH=$(readlink -f -- "$0") # This script file
+SUPERMAC=$(dirname "$SUPERPATH")
+
 # Remap caps lock -> hyper key (ctrl+alt+cmd)
 brew cask install karabiner
 brew cask install seil
-cp configs/karabiner/private.xml ~/Library/Application\ Support/Karabiner
-# open seil, check "Change the caps lock key", set keycode to 110
-# open karabiner, check "PC Application Key to Hyper"
-# also, while you're there hit the "Key Repeat" tab and set:
+cp $SUPERMAC/configs/karabiner/private.xml ~/Library/Application\ Support/Karabiner
+# Open seil, check "Change the caps lock key", set keycode to 110.
+# Open karabiner, check "PC Application Key to Hyper".
+# Also, while you're there hit the "Key Repeat" tab and set:
 #   Delay until repeat = 200ms
 #   Key repeat         = 30ms
 
@@ -114,9 +117,9 @@ gem install lolcat
 
 # Theme the planet with Tomorrow Night Eighties
 # iterm2
-curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/iTerm2/Tomorrow%20Night%20Eighties.itermcolors -o ./external/tomorrow_night_eighties.itermcolors
+curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/iTerm2/Tomorrow%20Night%20Eighties.itermcolors -o $SUPERMAC/external/tomorrow_night_eighties.itermcolors
 # terminal.app
-curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal -o ./external/tomorrow_night_eighties.terminal
+curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal -o $SUPERMAC/external/tomorrow_night_eighties.terminal
 # pygments and cat
 sudo curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o /Library/Python/2.7/site-packages/pygments/styles/tomorrownighteighties.py
 
