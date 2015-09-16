@@ -49,9 +49,9 @@ function change_granularity(iswidth, del)
 end
 
 function centerpoint()
-  w = grid.GRIDWIDTH / 2
-  h = grid.GRIDHEIGHT / 2
-  return { x = w / 2, y = h / 2, w = w, h = h }
+  w = grid.GRIDWIDTH - 2
+  h = grid.GRIDHEIGHT - 2
+  return { x = 1, y = 1, w = w, h = h }
 end
 
 function fullheightatcolumn(column)
