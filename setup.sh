@@ -92,6 +92,16 @@ luarocks install mjolnir.application
 luarocks install mjolnir.bg.grid
 luarocks install mjolnir.hotkey
 
+# Remap caps lock -> hyper key (ctrl+alt+cmd)
+brew cask install karabiner
+brew cask install seil
+cp configs/karabiner/private.xml ~/Library/Application\ Support/Karabiner
+# open seil, check "Change the caps lock key", set keycode to 110
+# open karabiner, check "PC Application Key to Hyper"
+# also, while you're there hit the "Key Repeat" tab and set:
+#   Delay until repeat = 200ms
+#   Key repeat         = 30ms
+
 # Fonts
 brew tap caskroom/fonts
 brew cask install font-source-code-pro

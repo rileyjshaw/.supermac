@@ -7,7 +7,7 @@ git pull origin master;
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "LICENSE.md" --exclude "setup.sh" \
-		--exclude ".gitignore" -avh --no-perms . ~;
+		--exclude "configs" --exclude ".gitignore" -avh --no-perms . ~;
 
 	git config --global user.name "$GIT_AUTHOR_NAME"
 	git config --global user.email "$GIT_AUTHOR_EMAIL"

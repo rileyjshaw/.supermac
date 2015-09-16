@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>PC Application Key to Hyper</name>
+    <appendix>OS X doesn't have a Hyper. This maps Caps Lock to Control + Option + Command.</appendix>
+
+    <identifier>usercustom.pc_to_hyper</identifier>
+
+    <autogen>
+        --KeyToKey--
+        KeyCode::PC_APPLICATION,
+
+        KeyCode::COMMAND_L,
+        ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L
+    </autogen>
+</item>
+</root>
