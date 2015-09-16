@@ -58,28 +58,35 @@ function fullheightatcolumn(column)
   return { x = column - 1, y = 0, w = 1, h = grid.GRIDHEIGHT }
 end
 
+function ifwin(fn)
+  return function()
+    local win = window.focusedwindow()
+    if win then fn(win) end
+  end
+end
+
 local grid_shortcuts = {
   R = mjolnir.reload,
-  [";"] = function() grid.snap(window.focusedwindow()) end,
-  up = grid.pushwindow_up,
-  left = grid.pushwindow_left,
-  right = grid.pushwindow_right,
-  down = grid.pushwindow_down,
-  A = grid.resizewindow_thinner,
-  D = grid.resizewindow_wider,
-  W = grid.resizewindow_shorter,
-  S = grid.resizewindow_taller,
-  space = grid.maximize_window,
-  F = grid.pushwindow_nextscreen,
-  C = function() grid.set(window.focusedwindow(), centerpoint(), window.focusedwindow():screen()) end,
+  [";"] = ifwin(grid.snap),
+  up = ifwin(grid.pushwindow_up),
+  left = ifwin(grid.pushwindow_left),
+  right = ifwin(grid.pushwindow_right),
+  down = ifwin(grid.pushwindow_down),
+  A = ifwin(grid.resizewindow_thinner),
+  D = ifwin(grid.resizewindow_wider),
+  W = ifwin(grid.resizewindow_shorter),
+  S = ifwin(grid.resizewindow_taller),
+  space = ifwin(grid.maximize_window),
+  F = ifwin(grid.pushwindow_nextscreen),
+  C = ifwin(function(win) grid.set(win, centerpoint(), win:screen()) end),
   H = function() change_granularity(true, 1) end,
   J = function() change_granularity(false, 1) end,
   K = function() change_granularity(false, -1) end,
   L = function() change_granularity(true, -1) end,
-  ["1"] = function() grid.set(window.focusedwindow(), fullheightatcolumn(1), window.focusedwindow():screen()) end,
-  ["2"] = function() grid.set(window.focusedwindow(), fullheightatcolumn(2), window.focusedwindow():screen()) end,
-  ["3"] = function() grid.set(window.focusedwindow(), fullheightatcolumn(3), window.focusedwindow():screen()) end,
-  ["4"] = function() grid.set(window.focusedwindow(), fullheightatcolumn(4), window.focusedwindow():screen()) end,
+  ["1"] = ifwin(function(win) grid.set(win, fullheightatcolumn(1), win:screen()) end),
+  ["2"] = ifwin(function(win) grid.set(win, fullheightatcolumn(2), win:screen()) end),
+  ["3"] = ifwin(function(win) grid.set(win, fullheightatcolumn(3), win:screen()) end),
+  ["4"] = ifwin(function(win) grid.set(win, fullheightatcolumn(4), win:screen()) end),
   ["0"] = function() reset_granularity() alert.show(GRIDWIDTH..", "..GRIDHEIGHT) end
 }
 
