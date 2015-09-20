@@ -7,9 +7,16 @@
         <appendix>It does, however, have a Caps Lock key that I never use.</appendix>
         <appendix>This maps a double-tap of Caps Lock to Control + Option + Space (open iTerm2 drawer).</appendix>
         <appendix>Holding Caps Lock maps to Control + Option + Command (Mjolnir meta key).</appendix>
+        <appendix>Shift + Caps Lock does the regular thing.</appendix>
 
         <identifier>usercustom.pc_to_hyper</identifier>
 
+        <autogen>
+            __KeyToKey__
+            KeyCode::PC_APPLICATION,
+            ModifierFlag::SHIFT_L,
+            KeyCode::CAPSLOCK,
+        </autogen>
         <autogen>
             __KeyToKey__
             KeyCode::PC_APPLICATION,
