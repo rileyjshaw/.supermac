@@ -4,6 +4,7 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%C(yellow)%d%Creset' --abbrev-commit --date=relative
   rmignore = rm --cached `git ls-files -i -X .gitignore`
   st = status
+  amnd = commit -a --amend --no-edit
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
