@@ -69,6 +69,7 @@ brew install tree
 
 # Setup rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+sudo gem install bundler # TODO(riley): Do this w/o sudo
 
 # Setup virtualenv
 sudo easy_install --quiet pip
