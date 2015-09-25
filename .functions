@@ -169,3 +169,27 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+transform_blame_line () {
+    # Replace hash with date, remove committer name
+    while read blame_line; do
+        hsh=$(cut -d' ' -f1 <<< $blame_line)
+        rest=$(cut -d' ' -f2- <<< $blame_line)
+        # Remove '(Committer M. Name 2020-01-01 99:99 -7000 123)    '
+        rest=$(sed 's/([^)]*) *//' <<< $rest)
+        date=$(git show -s --format='%ad' --date=short $hsh)
+        echo $date $rest
+    done
+}
+
+# List remaining TODOs on a project. Thanks @sergeio x1000 for this!
+# Usage: todo <name>
+todo () {
+    # Show all of your TODO(myname)s, sorted by time. Might take a minute
+    for FILE in $(git grep -l "TODO($1)"); do
+        git blame --show-name --show-number $FILE |
+        grep "TODO($1)"
+    done |
+    transform_blame_line |
+    sort
+}
