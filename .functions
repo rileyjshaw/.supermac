@@ -10,8 +10,8 @@ function calc() {
 		# improve the output for decimal numbers
 		printf "$result" |
 		sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
-		    -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
-		    -e 's/0*$//;s/\.$//';  # remove trailing zeros
+			-e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
+			-e 's/0*$//;s/\.$//';  # remove trailing zeros
 	else
 		printf "$result";
 	fi;
@@ -170,26 +170,54 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-transform_blame_line () {
-    # Replace hash with date, remove committer name
-    while read blame_line; do
-        hsh=$(cut -d' ' -f1 <<< $blame_line)
-        rest=$(cut -d' ' -f2- <<< $blame_line)
-        # Remove '(Committer M. Name 2020-01-01 99:99 -7000 123)    '
-        rest=$(sed 's/([^)]*) *//' <<< $rest)
-        date=$(git show -s --format='%ad' --date=short $hsh)
-        echo $date $rest
-    done
-}
-
 # List remaining TODOs on a project. Thanks @sergeio x1000 for this!
 # Usage: todo <name>
 todo () {
-    # Show all of your TODO(myname)s, sorted by time. Might take a minute
-    for FILE in $(git grep -l "TODO($1)"); do
-        git blame --show-name --show-number $FILE |
-        grep "TODO($1)"
-    done |
-    transform_blame_line |
-    sort
+	# All of a user's TODOs, ordered by date
+	_groupby_grep_file_output () {
+		# Groups filename:1\nfilename:2 into filename:1,2
+		awk -F: '{if ($1 in arr)
+					  arr[$1] = (arr[$1] "," $2)
+				  else
+					  arr[$1] = $2}
+				  END {
+					  for (key in arr) printf("%s:%s\n", key, arr[key])
+				 }'
+	}
+
+	_nums_to_blame_opts () {
+		# Turn "1,2,3" into "-L 1,1 -L 2,2 -L 3,3"
+		opts=""
+		for num in $(sed 's/,/ /g' <<< $1); do
+			opts="$opts -L $num,$num"
+		done
+		echo "$opts"
+	}
+
+	_grep_to_blame () {
+		while read LINE; do
+			filename=$(cut -d: -f1 <<< $LINE)
+			line_nums=$(cut -d: -f2 <<< $LINE)
+			blame_line_opts=$(_nums_to_blame_opts $line_nums)
+			eval "git blame --show-name --show-number $blame_line_opts '$filename'"
+		done
+	}
+
+	_transform_blame_line () {
+		# Replace hash with date, remove committer name
+		while read blame_line; do
+			hsh=$(cut -d' ' -f1 <<< $blame_line)
+			rest=$(cut -d' ' -f2- <<< $blame_line)
+			# Remove '(Committer M. Name 2020-01-01 99:99 -7000 123)    '
+			rest=$(sed 's/([^)]*) *//' <<< $rest)
+			date=$(git show -s --format='%ad' --date=short $hsh)
+			echo "$date $rest"
+		done
+	}
+
+	git grep -n "TODO($1)" \
+		| _groupby_grep_file_output \
+		| _grep_to_blame \
+		| _transform_blame_line \
+		| sort
 }
