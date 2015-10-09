@@ -4,9 +4,6 @@ export PATH="$HOME/bin:$PATH";
 # Add sbin to $PATH for homebrew
 export PATH="/usr/local/sbin:$PATH";
 
-# Allow npm installs without sudo, via https://gist.github.com/DanHerbert/9520689
-export PATH="$HOME/.npm-packages/bin:$PATH"
-
 # Lemme code
 export EDITOR='subl -w'
 

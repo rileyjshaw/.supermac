@@ -64,7 +64,7 @@ brew install git-lfs
 brew install glances
 brew install lua
 brew install lynx
-brew install node --without-npm # https://gist.github.com/DanHerbert/9520689
+brew install nvm
 brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
@@ -87,7 +87,7 @@ sudo pip install Pygments
 # Install node packages
 mkdir ~/.npm-packages
 curl -L https://www.npmjs.com/install.sh | sh
-npm i -g babel bower forever grunt-cli gulp http-server node-inspector node-sass nodemon npm-check-updates uglify-js yo
+npm i -g babel bower forever grunt-cli gulp http-server node-inspector node-sass nodemon npm-check-updates uglify-js vtop yo
 
 # Install mjolnir window manager and dependencies
 brew cask install mjolnir
