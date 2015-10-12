@@ -9,6 +9,6 @@ GIT_AUTHOR_NAME="Your Name"
 GIT_AUTHOR_EMAIL="your@email.com"
 ```
 
-I use a Mac with iTerm 2 and tmux and stuff.
+I use a Mac with iTerm 2 ~~and tmux~~ and stuff.
 
 Licensed under MIT for maximum enjoyment.
