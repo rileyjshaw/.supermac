@@ -120,13 +120,25 @@ brew install fortune
 brew install sl
 gem install lolcat
 
+# Remove outdated versions from the cellar.
+brew cleanup
+
+[[ -d $SUPERMAC/external ]] || mkdir $SUPERMAC/external
+
 # Theme the planet with Tomorrow Night Eighties
 # iterm2
 curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/iTerm2/Tomorrow%20Night%20Eighties.itermcolors -o $SUPERMAC/external/tomorrow_night_eighties.itermcolors
 # terminal.app
 curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal -o $SUPERMAC/external/tomorrow_night_eighties.terminal
 # pygments and cat
-sudo curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o /Library/Python/2.7/site-packages/pygments/styles/tomorrownighteighties.py
+curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o $SUPERMAC/external/tomorrownighteighties.py
 
-# Remove outdated versions from the cellar.
-brew cleanup
+lolcat cowsay "Woo! You're done setup."
+
+echo
+echo "To set up terminal colors,"
+echo " - From iTerm2 > Preferences > Profiles > Colors, select $SUPERMAC/external/tomorrow_night_eighties.itermcolors"
+echo " - From terminal.app > Preferences > Profile, select $SUPERMAC/external/tomorrow_night_eighties.terminal"
+echo " - Audit $SUPERMAC/external/tomorrownighteighties.py, then run:"
+echo "   sudo cp $SUPERMAC/external/tomorrownighteighties.py $(python -c "import sys; import site; print [p for p in sys.path if p.endswith('site-packages')][-1] if hasattr(sys,'real_prefix') else site.getsitepackages();")/pygments/styles/"
+echo
