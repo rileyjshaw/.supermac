@@ -62,6 +62,7 @@ brew install ack
 brew install git
 brew install git-lfs
 brew install glances
+brew install hub
 brew install lua
 brew install lynx
 brew install nvm
