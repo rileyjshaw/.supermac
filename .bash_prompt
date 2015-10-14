@@ -94,6 +94,11 @@ set_title() {
 
 # Set the terminal title to the current working directory.
 PS1="\[\$(set_title \"\w\")\]";
+
+# Make the prompt go to the first column always
+PS1+="\[\033[G\]"
+
+# Embolden
 PS1+="\[${bold}\]";
 
 # Only show username and host when connected via SSH
