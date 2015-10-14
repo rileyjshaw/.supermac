@@ -112,6 +112,7 @@ cp $SUPERMAC/configs/karabiner/private.xml ~/Library/Application\ Support/Karabi
 
 # Fonts
 brew tap caskroom/fonts
+brew cask install font-roboto-mono
 brew cask install font-source-code-pro
 
 # Very important
