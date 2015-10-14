@@ -116,8 +116,8 @@ if [[ "${SSH_TTY}" ]]; then
 fi;
 
 PS1+="\[${blue}\]\w"; # working directory
-PS1+="\$(prompt_git \"\[$light_grey\] on \[$purple\]\" \"\[${red}\]\")"; # Git repository details
-PS1+="\[${reset}\]\[${blue}\] »» \[${reset}\]";
+PS1+="\$(prompt_git \"\[$reset\]\[$grey\] ⑂ \[$bold\]\[$purple\]\" \"\[${reset}\]\[${red}\]\")"; # Git repository details
+PS1+="\[${blue}\] ⋄ \[${reset}\]";
 export PS1;
 
 PS2="\[${orange}\]→ \[${reset}\]";
