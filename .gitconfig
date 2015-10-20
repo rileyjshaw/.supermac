@@ -5,6 +5,8 @@
   rmignore = rm --cached `git ls-files -i -X .gitignore`
   st = status
   amnd = commit -a --amend --no-edit
+  fix-conflicted = "!$EDITOR `git diff --name-only --diff-filter=U`"
+  add-conflicted = "!git add `git diff --name-only --diff-filter=U`"
 [apply]
   # Detect whitespace errors when applying a patch
   whitespace = fix
