@@ -171,7 +171,7 @@ function tre() {
 }
 
 # List remaining TODOs on a project. Thanks @sergeio x1000 for this!
-# Usage: todo <name>
+# Usage: todo <name> <optional flag string eg. STOPSHIP>
 function todo() {
 	# All of a user's TODOs, ordered by date
 	_groupby_grep_file_output () {
@@ -215,7 +215,7 @@ function todo() {
 		done
 	}
 
-	git grep -n "TODO($1)" \
+	git grep -n "${2:-TODO}($1)" \
 		| _groupby_grep_file_output \
 		| _grep_to_blame \
 		| _transform_blame_line \
