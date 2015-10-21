@@ -13,6 +13,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Prevent the startup sound
 sudo nvram SystemAudioVolume=" "
 
+# Avoid creation of .DS_Store and AppleDouble files
+# on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+# on USB volumes
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
 # Install homebrew
 if ! brew --help >/dev/null 2>&1; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
