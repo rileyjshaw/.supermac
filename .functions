@@ -172,7 +172,7 @@ function tre() {
 
 # List remaining TODOs on a project. Thanks @sergeio x1000 for this!
 # Usage: todo <name>
-todo () {
+function todo() {
 	# All of a user's TODOs, ordered by date
 	_groupby_grep_file_output () {
 		# Groups filename:1\nfilename:2 into filename:1,2
@@ -220,4 +220,10 @@ todo () {
 		| _grep_to_blame \
 		| _transform_blame_line \
 		| sort
+}
+
+# Print the password of the Wi-Fi network you're currently on.
+# Accepts an optional SSID argument to print the password of another network.
+function wifi-password() {
+	security find-generic-password -D "AirPort network password" -a "${1:-`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`}" -gw;
 }
