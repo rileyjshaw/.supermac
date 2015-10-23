@@ -35,3 +35,5 @@ export GREP_OPTIONS='--color=auto';
 # And a few extras from setup.sh
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
