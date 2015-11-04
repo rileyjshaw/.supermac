@@ -95,7 +95,7 @@ sudo pip install Pygments
 mkdir ~/.nvm
 mkdir ~/.npm-packages
 curl -L https://www.npmjs.com/install.sh | sh
-npm i -g babel bower forever grunt-cli gulp http-server node-inspector node-sass nodemon npm-check-updates uglify-js vtop yo
+npm i -g babel-core bower forever grunt-cli gulp http-server node-inspector node-sass nodemon npm-check-updates uglify-js vtop yo
 
 # Install mjolnir window manager and dependencies
 brew cask install mjolnir
