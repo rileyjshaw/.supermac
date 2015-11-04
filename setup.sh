@@ -92,7 +92,11 @@ echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luaro
 sudo pip install Pygments
 
 # Install node packages
+mkdir ~/.nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 nvm install node
+nvm alias default node
 npm i -g babel-core bower forever grunt-cli gulp http-server node-inspector node-sass nodemon npm-check-updates uglify-js vtop yo
 
 # Install mjolnir window manager and dependencies
