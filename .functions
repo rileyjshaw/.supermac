@@ -222,6 +222,15 @@ function todo() {
 		| sort
 }
 
+function asciify() {
+  echo $1 | tr -cd '\000-\177'
+}
+
+function asciify-prompt() {
+  PS1=$(asciify "$PS1")
+  PS2=$(asciify "$PS2")
+}
+
 # Print the password of the Wi-Fi network you're currently on.
 # Accepts an optional SSID argument to print the password of another network.
 function wifi-password() {
