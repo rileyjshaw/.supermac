@@ -1,3 +1,3 @@
 if [ -s ~/.profile.khan ]; then
-  source ~/.profile.khan;
+	source ~/.profile.khan;
 fi

@@ -21,7 +21,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Install homebrew
 if ! brew --help >/dev/null 2>&1; then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Make sure we’re using the latest Homebrew.

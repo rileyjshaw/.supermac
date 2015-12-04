@@ -177,11 +177,11 @@ function todo() {
 	_groupby_grep_file_output () {
 		# Groups filename:1\nfilename:2 into filename:1,2
 		awk -F: '{if ($1 in arr)
-					  arr[$1] = (arr[$1] "," $2)
-				  else
-					  arr[$1] = $2}
-				  END {
-					  for (key in arr) printf("%s:%s\n", key, arr[key])
+						arr[$1] = (arr[$1] "," $2)
+					else
+						arr[$1] = $2}
+					END {
+						for (key in arr) printf("%s:%s\n", key, arr[key])
 				 }'
 	}
 
@@ -223,12 +223,12 @@ function todo() {
 }
 
 function asciify() {
-  echo $1 | tr -cd '\000-\177'
+	echo $1 | tr -cd '\000-\177'
 }
 
 function asciify-prompt() {
-  PS1=$(asciify "$PS1")
-  PS2=$(asciify "$PS2")
+	PS1=$(asciify "$PS1")
+	PS2=$(asciify "$PS2")
 }
 
 # Print the password of the Wi-Fi network you're currently on.
