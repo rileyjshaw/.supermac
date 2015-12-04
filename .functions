@@ -173,6 +173,22 @@ function tre() {
 # List remaining TODOs on a project. Thanks @sergeio x1000 for this!
 # Usage: todo <name> <optional flag string eg. STOPSHIP>
 function todo() {
+	todo_usage() { echo "todo: [-l] <name> [<flagstring>]" 1>&2; }
+
+	local OPTIND flag l
+	while getopts ":l" flag; do
+		case "${flag}" in
+			l)
+				l=true
+				;;
+			*)
+				echo "Invalid option: -$OPTARG";
+				todo_usage
+				;;
+		esac
+	done
+	shift $((OPTIND-1))
+
 	# All of a user's TODOs, ordered by date
 	_groupby_grep_file_output () {
 		# Groups filename:1\nfilename:2 into filename:1,2
@@ -216,10 +232,10 @@ function todo() {
 	}
 
 	git grep -n "${2:-TODO}($1)" \
-		| _groupby_grep_file_output \
+		| if [ "$l" = true ]; then wc -l; else _groupby_grep_file_output \
 		| _grep_to_blame \
 		| _transform_blame_line \
-		| sort
+		| sort; fi
 }
 
 function asciify() {
