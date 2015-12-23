@@ -1,35 +1,35 @@
 <?xml version="1.0"?>
 <root>
-		<item>
-				<name style="important">PC Application Key to Hyper++</name>
+	<item>
+		<name style="important">PC Application Key to Hyper++</name>
 
-				<appendix>OS X doesn't have a Hyper Key.</appendix>
-				<appendix>It does, however, have a Caps Lock key that I never use.</appendix>
-				<appendix>This maps a double-tap of Caps Lock to Control + Option + Space (open iTerm2 drawer).</appendix>
-				<appendix>Holding Caps Lock maps to Control + Option + Command (Mjolnir meta key).</appendix>
-				<appendix>Shift + Caps Lock does the regular thing.</appendix>
+		<appendix>OS X doesn't have a Hyper Key.</appendix>
+		<appendix>It does, however, have a Caps Lock key that I never use.</appendix>
+		<appendix>This maps Caps Lock to Control + Option + Command (Mjolnir meta key).</appendix>
+		<appendix>Shift + Caps Lock does the regular thing.</appendix>
+		<appendix>A double-tap of Caps Lock maps to Control + Option + Space (open iTerm2 drawer).</appendix>
 
-				<identifier>usercustom.pc_to_hyper</identifier>
+		<identifier>usercustom.pc_to_hyper</identifier>
 
-				<autogen>
-						__KeyToKey__
-						KeyCode::PC_APPLICATION,
-						ModifierFlag::SHIFT_L,
-						KeyCode::CAPSLOCK,
-				</autogen>
-				<autogen>
-						__KeyToKey__
-						KeyCode::PC_APPLICATION,
-						KeyCode::COMMAND_L,
-						ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
+		<autogen>
+			__KeyToKey__
+			KeyCode::PC_APPLICATION,
+			ModifierFlag::SHIFT_L,
+			KeyCode::CAPSLOCK,
+		</autogen>
+		<autogen>
+			__KeyToKey__
+			KeyCode::PC_APPLICATION,
+			KeyCode::COMMAND_L,
+			ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
 
-						Option::KEYTOKEY_DELAYED_ACTION,
-						KeyCode::VK_NONE,
+			Option::KEYTOKEY_DELAYED_ACTION,
+			KeyCode::VK_NONE,
 
-						Option::KEYTOKEY_DELAYED_ACTION_CANCELED_BY, KeyCode::PC_APPLICATION,
-						KeyCode::SPACE,
-						ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
-						KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT, <!-- drop second key event -->
-				</autogen>
-		</item>
+			Option::KEYTOKEY_DELAYED_ACTION_CANCELED_BY, KeyCode::PC_APPLICATION,
+			KeyCode::SPACE,
+			ModifierFlag::CONTROL_L | ModifierFlag::OPTION_L,
+			KeyCode::VK_KEYTOKEY_DELAYED_ACTION_DROP_EVENT, <!-- drop second key event -->
+		</autogen>
+	</item>
 </root>
