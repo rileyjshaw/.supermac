@@ -83,10 +83,6 @@ local grid_shortcuts = {
 	J = function() change_granularity(false, 1) end,
 	K = function() change_granularity(false, -1) end,
 	L = function() change_granularity(true, -1) end,
-	["1"] = ifwin(function(win) grid.set(win, fullheightatcolumn(1), win:screen()) end),
-	["2"] = ifwin(function(win) grid.set(win, fullheightatcolumn(2), win:screen()) end),
-	["3"] = ifwin(function(win) grid.set(win, fullheightatcolumn(3), win:screen()) end),
-	["4"] = ifwin(function(win) grid.set(win, fullheightatcolumn(4), win:screen()) end),
 	["0"] = function() reset_granularity() alert.show(GRIDWIDTH..", "..GRIDHEIGHT) end
 }
 
