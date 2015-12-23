@@ -72,6 +72,7 @@ local grid_shortcuts = {
 	left = ifwin(grid.pushwindow_left),
 	right = ifwin(grid.pushwindow_right),
 	down = ifwin(grid.pushwindow_down),
+-- 4 reserved for OSX screenshot
 	A = ifwin(grid.resizewindow_thinner),
 	D = ifwin(grid.resizewindow_wider),
 	W = ifwin(grid.resizewindow_shorter),
@@ -83,6 +84,7 @@ local grid_shortcuts = {
 	J = function() change_granularity(false, 1) end,
 	K = function() change_granularity(false, -1) end,
 	L = function() change_granularity(true, -1) end,
+-- Q reserved for Sip
 	["0"] = function() reset_granularity() alert.show(GRIDWIDTH..", "..GRIDHEIGHT) end
 }
 
