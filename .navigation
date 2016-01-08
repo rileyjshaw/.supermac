@@ -1,3 +1,6 @@
+# Only seed cd's autocompletion with directories
+complete -d cd
+
 ###
 # Shortcuts
 #####
