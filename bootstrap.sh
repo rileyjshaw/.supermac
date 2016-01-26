@@ -10,9 +10,6 @@ function doIt() {
 		--exclude "configs" --exclude ".gitignore" --exclude ".editorconfig" \
 		-avh --no-perms . ~;
 
-	git config --global user.name "$GIT_AUTHOR_NAME"
-	git config --global user.email "$GIT_AUTHOR_EMAIL"
-
 	source ~/.bash_profile;
 }
 
