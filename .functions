@@ -172,7 +172,7 @@ function tre() {
 
 # List remaining TODOs on a project. Thanks @sergeio x1000 for this!
 # Usage: todo <name> <optional flag string eg. STOPSHIP>
-function todo() {
+function todos() {
 	todo_usage() { echo "todo: [-l] <name> [<flagstring>]" 1>&2; }
 
 	local OPTIND flag l
