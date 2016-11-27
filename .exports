@@ -7,6 +7,9 @@ export PATH="/usr/local/sbin:$PATH";
 # Lemme code
 export EDITOR='subl -w'
 
+# Yarn
+export PATH="$PATH:`yarn global bin`"
+
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Enable persistent REPL history for `node`.
 NODE_REPL_HISTORY_FILE=~/.node_history;
@@ -35,4 +38,4 @@ export GREP_OPTIONS='--color=auto';
 # And a few extras from setup.sh
 eval "$(rbenv init -)"
 export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads it...
