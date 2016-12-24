@@ -67,6 +67,7 @@ command -v grunt > /dev/null && alias grunt="grunt --stack"
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias brb=afk
+alias zzz="pmset sleepnow"
 
 # Add a bunch of commands to git, from https://github.com/github/hub
 eval "$(hub alias -s)"
