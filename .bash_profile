@@ -35,7 +35,7 @@ elif [ -f /etc/bash_completion ]; then
 fi;
 
 # NVM
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads it...
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"  # This loads it...
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # Enable tab completion for `g` by marking it as an alias for `git`
