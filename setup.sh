@@ -77,6 +77,9 @@ brew install ruby-build
 brew install the_silver_searcher
 brew install tree
 
+# Install image_optim deps.
+brew install advancecomp gifsicle jhead jpegoptim jpeg optipng pngcrush pngquant jonof/kenutils/pngout
+
 # Setup rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 sudo gem install bundler # TODO(riley): Do this w/o sudo
