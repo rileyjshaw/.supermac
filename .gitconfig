@@ -7,6 +7,7 @@
 	amnd = commit -a --amend --no-edit
 	fix-conflicted = "!$EDITOR `git diff --name-only --diff-filter=U`"
 	add-conflicted = "!git add `git diff --name-only --diff-filter=U`"
+	slog = log --pretty=format:'%Creset%C(red bold)[%ad] %C(blue bold)%h %Creset%s %C(green bold)(%an)%Creset' --abbrev-commit --date=short
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
