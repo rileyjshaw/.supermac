@@ -36,7 +36,6 @@ __pycache__/
 Icon
 Icon?
 logs
-node_modules
 npm-debug.log*
 pip-log.txt
 tags
