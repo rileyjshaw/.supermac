@@ -75,3 +75,6 @@ eval "$(hub alias -s)"
 
 # Make music
 alias bytebeat="sox -traw -r8000 -b8 -e unsigned-integer - -tcoreaudio"
+
+# Get a branch ready to land
+alias ahoy="git rebase --exec 'arc amend || true'"
