@@ -8,6 +8,8 @@ fi
 
 # Modified version of https://github.com/necolas/dotfiles/blob/master/shell/bash_prompt
 prompt_git() {
+	local commitsBehind=''
+	local commitsAhead=''
 	local s='';
 	local branchName='';
 	local headDelta=0;
@@ -23,6 +25,81 @@ prompt_git() {
 
 			# Ensure the index is up to date.
 			git update-index --really-refresh -q &>/dev/null;
+
+			# Check how far ahead we are from upstream.
+			read commitsBehind commitsAhead <<<$(git rev-list --left-right --count @{u}...)
+
+			case $commitsBehind in
+				0)
+					commitsBehind=''
+					;;
+				1)
+					commitsBehind="$1₋₁"
+					;;
+				2)
+					commitsBehind="$1₋₂"
+					;;
+				3)
+					commitsBehind="$1₋₃"
+					;;
+				4)
+					commitsBehind="$1₋₄"
+					;;
+				5)
+					commitsBehind="$1₋₅"
+					;;
+				6)
+					commitsBehind="$1₋₆"
+					;;
+				7)
+					commitsBehind="$1₋₇"
+					;;
+				8)
+					commitsBehind="$1₋₈"
+					;;
+				9)
+					commitsBehind="$1₋₉"
+					;;
+				*)
+					commitsBehind="$1₋₋"
+					;;
+			esac
+
+			case $commitsAhead in
+				0)
+					commitsAhead=''
+					;;
+				1)
+					commitsAhead="$1₊₁ "
+					;;
+				2)
+					commitsAhead="$1₊₂ "
+					;;
+				3)
+					commitsAhead="$1₊₃ "
+					;;
+				4)
+					commitsAhead="$1₊₄ "
+					;;
+				5)
+					commitsAhead="$1₊₅ "
+					;;
+				6)
+					commitsAhead="$1₊₆ "
+					;;
+				7)
+					commitsAhead="$1₊₇ "
+					;;
+				8)
+					commitsAhead="$1₊₈ "
+					;;
+				9)
+					commitsAhead="$1₊₉ "
+					;;
+				*)
+					commitsAhead="$1₊₊ "
+					;;
+			esac
 
 			# Check for uncommitted changes in the index.
 			if ! $(git diff --quiet --ignore-submodules --cached); then
@@ -72,7 +149,7 @@ prompt_git() {
 
 		[ -n "${s}" ] && s=" [${s}]";
 
-		echo -e "${upstreamDeltaColor} ⑂${4} ${branchName}${headDeltaColor}${s}";
+		echo -e "${commitsBehind}${upstreamDeltaColor}⑂ ${commitsAhead}${4}${branchName}${headDeltaColor}${s}";
 	else
 		return;
 	fi;
@@ -136,8 +213,10 @@ if [[ "${SSH_TTY}" ]]; then
 	PS1+="\[${white}\] in ";
 fi;
 
-PS1+="\[${blue}\]\w"; # working directory
-PS1+="\$(prompt_git \"\[$reset\]\[$grey\]\" \"\[$reset\]\[$green\]\" \"\[$reset\]\[$red\]\" \"\[$bold\]\[$purple\]\")"; # Git repository details
+# Working directory.
+PS1+="\[${blue}\]\w";
+# Git repository details.
+PS1+=" \$(prompt_git \"\[$reset\]\[$grey\]\" \"\[$reset\]\[$green\]\" \"\[$reset\]\[$red\]\" \"\[$bold\]\[$purple\]\")";
 PS1+="\[${blue}\] ⋄ \[${reset}\]";
 export PS1;
 
