@@ -64,7 +64,6 @@ function cdf() { # short for `cdfinder`
 }
 # git
 alias g="git"
-alias gs="git status"
 
 ###
 # Apps
