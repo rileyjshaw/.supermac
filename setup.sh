@@ -113,14 +113,8 @@ SUPERPATH=$(readlink -f -- "$0") # This script file
 SUPERMAC=$(dirname "$SUPERPATH")
 
 # Remap caps lock -> hyper key (ctrl+alt+cmd)
-brew cask install karabiner
-brew cask install seil
-cp $SUPERMAC/configs/karabiner/private.xml ~/Library/Application\ Support/Karabiner
-# Open seil, check "Change the caps lock key", set keycode to 110.
-# Open karabiner, check "PC Application Key to Hyper".
-# Also, while you're there hit the "Key Repeat" tab and set:
-#   Delay until repeat = 200ms
-#   Key repeat         = 30ms
+brew cask install karabiner-elements
+cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
 # Fonts
 brew tap caskroom/fonts
