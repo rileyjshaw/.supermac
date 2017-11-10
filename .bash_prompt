@@ -19,87 +19,94 @@ prompt_git() {
 
 	# Check if the current directory is in a Git repository.
 	if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
+		# Get the short symbolic ref.
+		# If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
+		# Otherwise, just give up.
+		branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
+			git rev-parse --short HEAD 2> /dev/null || \
+			echo '(unknown)')";
 
 		# check if the current directory is in .git before running git checks
 		if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
-
 			# Ensure the index is up to date.
 			git update-index --really-refresh -q &>/dev/null;
 
 			# Check how far ahead we are from upstream.
-			read commitsBehind commitsAhead <<<$(git rev-list --left-right --count @{u}...)
+			if branch=$(git symbolic-ref --short -q HEAD); then
+				read commitsBehind commitsAhead <<<$(git rev-list --left-right --count @{u}...);
 
-			case $commitsBehind in
-				0)
-					commitsBehind=''
-					;;
-				1)
-					commitsBehind="$1₋₁"
-					;;
-				2)
-					commitsBehind="$1₋₂"
-					;;
-				3)
-					commitsBehind="$1₋₃"
-					;;
-				4)
-					commitsBehind="$1₋₄"
-					;;
-				5)
-					commitsBehind="$1₋₅"
-					;;
-				6)
-					commitsBehind="$1₋₆"
-					;;
-				7)
-					commitsBehind="$1₋₇"
-					;;
-				8)
-					commitsBehind="$1₋₈"
-					;;
-				9)
-					commitsBehind="$1₋₉"
-					;;
-				*)
-					commitsBehind="$1₋₋"
-					;;
-			esac
+				case $commitsBehind in
+					0)
+						commitsBehind=''
+						;;
+					1)
+						commitsBehind="$1₋₁"
+						;;
+					2)
+						commitsBehind="$1₋₂"
+						;;
+					3)
+						commitsBehind="$1₋₃"
+						;;
+					4)
+						commitsBehind="$1₋₄"
+						;;
+					5)
+						commitsBehind="$1₋₅"
+						;;
+					6)
+						commitsBehind="$1₋₆"
+						;;
+					7)
+						commitsBehind="$1₋₇"
+						;;
+					8)
+						commitsBehind="$1₋₈"
+						;;
+					9)
+						commitsBehind="$1₋₉"
+						;;
+					*)
+						commitsBehind="$1₋₋"
+						;;
+				esac
 
-			case $commitsAhead in
-				0)
-					commitsAhead=''
-					;;
-				1)
-					commitsAhead="$1₊₁ "
-					;;
-				2)
-					commitsAhead="$1₊₂ "
-					;;
-				3)
-					commitsAhead="$1₊₃ "
-					;;
-				4)
-					commitsAhead="$1₊₄ "
-					;;
-				5)
-					commitsAhead="$1₊₅ "
-					;;
-				6)
-					commitsAhead="$1₊₆ "
-					;;
-				7)
-					commitsAhead="$1₊₇ "
-					;;
-				8)
-					commitsAhead="$1₊₈ "
-					;;
-				9)
-					commitsAhead="$1₊₉ "
-					;;
-				*)
-					commitsAhead="$1₊₊ "
-					;;
-			esac
+				case $commitsAhead in
+					0)
+						commitsAhead=''
+						;;
+					1)
+						commitsAhead="$1₊₁ "
+						;;
+					2)
+						commitsAhead="$1₊₂ "
+						;;
+					3)
+						commitsAhead="$1₊₃ "
+						;;
+					4)
+						commitsAhead="$1₊₄ "
+						;;
+					5)
+						commitsAhead="$1₊₅ "
+						;;
+					6)
+						commitsAhead="$1₊₆ "
+						;;
+					7)
+						commitsAhead="$1₊₇ "
+						;;
+					8)
+						commitsAhead="$1₊₈ "
+						;;
+					9)
+						commitsAhead="$1₊₉ "
+						;;
+					*)
+						commitsAhead="$1₊₊ "
+						;;
+				esac
+			fi;
 
 			# Check for uncommitted changes in the index.
 			if ! $(git diff --quiet --ignore-submodules --cached); then
@@ -118,14 +125,19 @@ prompt_git() {
 
 			# Check for stashed files.
 			if $(git rev-parse --verify refs/stash &>/dev/null); then
-				s+='$';
+				local stashLength=`git stash list --no-decorate | wc -l | tr -d ' '`;
+				if [ "$stashLength" -ne "0" ]; then s+="$stashLength"; fi;
 			fi;
 
 			# Check the LoC delta from HEAD and upstream.
-			headDelta=$(git diff HEAD --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -);
+			headDelta=$(git diff HEAD --staged --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -);
 
 			# TODO(riley): We don't need to run this as frequently.
-			upstreamDelta=$(( headDelta + $(git log @{u}.. --author="`git config user.name`" --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -) ));
+			if [[ $commitsAhead || $commitsBehind ]]; then
+				if branch=$(git symbolic-ref --short -q HEAD); then
+					upstreamDelta=$(( headDelta + $(git log @{u}.. --author="`git config user.name`" --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -) ));
+				fi;
+			fi;
 		fi;
 
 		if (( $headDelta > 0 )); then
@@ -139,13 +151,6 @@ prompt_git() {
 		elif (( $upstreamDelta < 0 )); then
 			upstreamDeltaColor=${3};
 		fi
-
-		# Get the short symbolic ref.
-		# If HEAD isn’t a symbolic ref, get the short SHA for the latest commit
-		# Otherwise, just give up.
-		branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-			git rev-parse --short HEAD 2> /dev/null || \
-			echo '(unknown)')";
 
 		[ -n "${s}" ] && s=" [${s}]";
 
