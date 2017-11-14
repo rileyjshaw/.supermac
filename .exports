@@ -10,6 +10,9 @@ export EDITOR='subl -w'
 # Yarn
 export PATH="$PATH:`yarn global bin`"
 
+# Anaconda
+export PATH="$PATH:/usr/local/miniconda3/bin"
+
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Enable persistent REPL history for `node`.
 NODE_REPL_HISTORY_FILE=~/.node_history;
@@ -36,6 +39,7 @@ export MANPAGER='less -X';
 export GREP_OPTIONS='--color=auto';
 
 # And a few extras from setup.sh
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads it...
