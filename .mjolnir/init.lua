@@ -38,14 +38,14 @@ end
 
 reset_granularity()
 
-function change_granularity(iswidth, del)
+function change_granularity(iswidth, delta)
 	if iswidth then
-		grid.GRIDWIDTH = grid.GRIDWIDTH + del
+		grid.GRIDWIDTH = grid.GRIDWIDTH + delta
 	else
-		grid.GRIDHEIGHT = grid.GRIDHEIGHT + del
+		grid.GRIDHEIGHT = grid.GRIDHEIGHT + delta
 	end
 
-	alert.show(tif(iswidth, grid.GRIDWIDTH, grid.GRIDHEIGHT))
+	alert.show(grid.GRIDWIDTH.." x "..grid.GRIDHEIGHT)
 end
 
 function centerpoint()
@@ -85,7 +85,7 @@ local grid_shortcuts = {
 	K = function() change_granularity(false, -1) end,
 	L = function() change_granularity(true, -1) end,
 -- Q reserved for Sip
-	["0"] = function() reset_granularity() alert.show(GRIDWIDTH..", "..GRIDHEIGHT) end
+	["0"] = function() reset_granularity() alert.show(GRIDWIDTH.." x "..GRIDHEIGHT) end
 }
 
 for key, func in pairs(grid_shortcuts) do
