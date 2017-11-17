@@ -225,7 +225,7 @@ function todos() {
 			hsh=$(cut -d' ' -f1 <<< $blame_line)
 			rest=$(cut -d' ' -f2- <<< $blame_line)
 			# Remove '(Committer M. Name 2020-01-01 99:99 -7000 123)    '
-			rest=$(sed 's/([^)]*) *//' <<< $rest)
+			rest=$(sed -e 's/ \([0-9]\+\) ([^)]*) */:\1 /' <<< $rest)
 			date=$(git show -s --format='%ad' --date=short $hsh)
 			echo "$date $rest"
 		done
