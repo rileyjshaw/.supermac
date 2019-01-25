@@ -129,15 +129,17 @@ prompt_git() {
 				if [ "$stashLength" -ne "0" ]; then s+="$stashLength"; fi;
 			fi;
 
-			# Check the LoC delta from HEAD and upstream.
-			headDelta=$(git diff HEAD --staged --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -);
+			if $(git rev-parse --verify HEAD &>/dev/null); then
+				# Check the LoC delta from HEAD and upstream.
+				headDelta=$(git diff HEAD --staged --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -);
 
-			# TODO(riley): We don't need to run this as frequently.
-			if [[ $commitsAhead || $commitsBehind ]]; then
-				if branch=$(git symbolic-ref --short -q HEAD); then
-					upstreamDelta=$(( headDelta + $(git log @{u}.. --author="`git config user.name`" --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -) ));
+				# TODO(riley): We don't need to run this as frequently.
+				if [[ $commitsAhead || $commitsBehind ]]; then
+					if branch=$(git symbolic-ref --short -q HEAD); then
+						upstreamDelta=$(( headDelta + $(git log @{u}.. --author="`git config user.name`" --pretty=tformat: --numstat | awk '{delta += $1 - $2} END {printf NR ? delta : 0}' -) ));
+					fi;
 				fi;
-			fi;
+			fi
 		fi;
 
 		if (( $headDelta > 0 )); then
