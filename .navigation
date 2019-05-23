@@ -8,7 +8,6 @@ complete -d cd
 alias h="cd ~"
 alias ~="cd ~" # `cd` is probably faster to type though
 alias c="cd ~/code"
-alias k="cd ~/khan/webapp"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 

@@ -1,10 +1,4 @@
 # Spin up the dream machine
-# KA
-if [ -s ~/.bash_profile.khan ]; then
-	source ~/.bash_profile.khan;
-fi
-
-# Personal
 for file in ~/.{aliases,bash_prompt,exports,functions,mort,navigation,secrets}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
