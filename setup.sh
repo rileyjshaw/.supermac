@@ -86,6 +86,7 @@ git lfs install
 
 # Install some cask apps.
 brew cask install iterm2
+brew cask install keka
 brew cask install visual-studio-code
 
 # Setup rbenv
