@@ -28,10 +28,7 @@ fi
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
-
-# Install homebrew-cask, so we can use it manage installing binary/GUI apps
-brew install caskroom/cask/brew-cask
+brew upgrade
 
 ###
 # Install command-line tools using Homebrew
@@ -76,9 +73,19 @@ brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
 brew install tree
+brew install vim
 
 # Install image_optim deps.
 brew install advancecomp gifsicle jhead jpegoptim jpeg optipng pngcrush pngquant jonof/kenutils/pngout
+
+# Configure git.
+git config --global user.email rileyjshaw@gmail.com
+git config --global user.name "Riley Shaw"
+git config --global core.editor vim
+git lfs install
+
+# Install some cask apps.
+brew cask install visual-studio-code
 
 # Setup rbenv
 sudo gem install bundler # TODO(riley): Do this w/o sudo
