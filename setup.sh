@@ -124,9 +124,10 @@ brew cask install karabiner-elements
 cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
 # Fonts
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-roboto-mono
 brew cask install font-source-code-pro
+brew cask install font-fira-code
 
 # Very important
 brew install cowsay
