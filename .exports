@@ -7,9 +7,6 @@ export PATH="/usr/local/sbin:$PATH";
 # Lemme code
 export EDITOR='subl -w'
 
-# Yarn
-export PATH="$PATH:`yarn global bin`"
-
 # Anaconda
 export PATH="$PATH:/usr/local/miniconda3/bin"
 

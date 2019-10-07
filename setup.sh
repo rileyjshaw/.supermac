@@ -107,13 +107,13 @@ export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 nvm install node
 nvm alias default node
-brew install yarn
+nvm use default
+npm i -g http-server npm-check-updates yarn
 brew uninstall node --ignore-dependencies
 mkdir /usr/local/Cellar/node
 ln -s ~/.nvm/versions/node/$(nvm current)/ /usr/local/Cellar/node
 brew link --overwrite node
 brew pin node
-npm i -g http-server npm-check-updates
 
 # Install mjolnir window manager and dependencies
 brew cask install mjolnir
