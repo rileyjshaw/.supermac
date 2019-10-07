@@ -85,6 +85,7 @@ git config --global core.editor vim
 git lfs install
 
 # Install some cask apps.
+brew cask install iterm2
 brew cask install visual-studio-code
 
 # Setup rbenv
