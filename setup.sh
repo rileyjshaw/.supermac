@@ -73,6 +73,7 @@ brew install python
 brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
+brew install tmux
 brew install tree
 brew install vim
 
