@@ -150,18 +150,18 @@ brew cleanup
 
 # Theme the planet with Tomorrow Night Eighties
 # iterm2
-curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/iTerm2/Tomorrow%20Night%20Eighties.itermcolors -o $SUPERMAC/external/tomorrow_night_eighties.itermcolors
+curl https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors -o $SUPERMAC/external/Nord.itermcolors
 # terminal.app
-curl https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night%20Eighties.terminal -o $SUPERMAC/external/tomorrow_night_eighties.terminal
+curl https://raw.githubusercontent.com/arcticicestudio/nord-terminal-app/develop/src/xml/Nord.terminal -o $SUPERMAC/external/Nord.terminal
 # pygments and cat
-curl https://raw.githubusercontent.com/MozMorris/tomorrow-pygments/master/styles/tomorrownighteighties.py -o $SUPERMAC/external/tomorrownighteighties.py
+curl https://raw.githubusercontent.com/lewisacidic/nord-pygments/master/nord_pygments.py -o $SUPERMAC/external/Nord.py
 
 lolcat cowsay "Woo! You're done setup."
 
 echo
 echo "To set up terminal colors,"
-echo " - From iTerm2 > Preferences > Profiles > Colors, select $SUPERMAC/external/tomorrow_night_eighties.itermcolors"
-echo " - From terminal.app > Preferences > Profile, select $SUPERMAC/external/tomorrow_night_eighties.terminal"
-echo " - Audit $SUPERMAC/external/tomorrownighteighties.py, then run:"
-echo "   sudo cp $SUPERMAC/external/tomorrownighteighties.py $(brew --prefix)/lib/python3.7/site-packages/pygments/styles
+echo " - From iTerm2 > Preferences > Profiles > Colors, select $SUPERMAC/external/Nord.itermcolors"
+echo " - From terminal.app > Preferences > Profile, select $SUPERMAC/external/Nord.terminal"
+echo " - Audit $SUPERMAC/external/Nord.py, then run:"
+echo "   sudo cp $SUPERMAC/external/Nord.py $(brew --prefix)/lib/python3.7/site-packages/pygments/styles
 echo
