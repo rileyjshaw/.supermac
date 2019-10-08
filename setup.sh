@@ -85,9 +85,12 @@ git config --global core.editor vim
 git lfs install
 
 # Install some cask apps.
-brew cask install iterm2
-brew cask install keka
-brew cask install visual-studio-code
+brew cask install \
+	iterm2 \
+	keka \
+	keybase \
+	visual-studio-code \
+	;
 
 # Setup rbenv
 sudo gem install bundler # TODO(riley): Do this w/o sudo
