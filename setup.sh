@@ -69,6 +69,7 @@ brew install hub
 brew install lua
 brew install lynx
 brew install nvm
+brew install python
 brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
@@ -95,15 +96,11 @@ brew cask install \
 # Setup rbenv
 sudo gem install bundler # TODO(riley): Do this w/o sudo
 
-# Setup virtualenv
-sudo easy_install --quiet pip
-sudo pip install -q virtualenv
-
 # Set up luarocks
 echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luarocks52/config-5.2.lua
 
 # Install some Python packages
-sudo pip install Pygments
+pip3 install Pygments
 
 # Install node packages
 mkdir ~/.nvm
@@ -165,5 +162,5 @@ echo "To set up terminal colors,"
 echo " - From iTerm2 > Preferences > Profiles > Colors, select $SUPERMAC/external/tomorrow_night_eighties.itermcolors"
 echo " - From terminal.app > Preferences > Profile, select $SUPERMAC/external/tomorrow_night_eighties.terminal"
 echo " - Audit $SUPERMAC/external/tomorrownighteighties.py, then run:"
-echo "   sudo cp $SUPERMAC/external/tomorrownighteighties.py $(python -c "import sys; import site; print [p for p in sys.path if p.endswith('site-packages')][-1] if hasattr(sys,'real_prefix') else site.getsitepackages();")/pygments/styles/"
+echo "   sudo cp $SUPERMAC/external/tomorrownighteighties.py $(brew --prefix)/lib/python3.7/site-packages/pygments/styles
 echo
