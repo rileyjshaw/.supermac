@@ -67,6 +67,7 @@ brew install git-lfs
 brew install glances
 brew install hub
 brew install lua
+brew install luarocks
 brew install lynx
 brew install nvm
 brew install python
@@ -88,11 +89,11 @@ git lfs install
 
 # Install some cask apps.
 brew cask install \
-	iterm2 \
-	keka \
-	keybase \
-	visual-studio-code \
-	;
+  iterm2 \
+  keka \
+  keybase \
+  visual-studio-code \
+  ;
 
 # Setup rbenv
 sudo gem install bundler # TODO(riley): Do this w/o sudo
@@ -118,7 +119,7 @@ brew link --overwrite node
 brew pin node
 
 # Install mjolnir window manager and dependencies
-brew cask install mjolnir
+brew cask install mjolnir karabiner-elements
 luarocks install mjolnir.alert
 luarocks install mjolnir.application
 luarocks install mjolnir.bg.grid

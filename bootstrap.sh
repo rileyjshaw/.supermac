@@ -10,6 +10,8 @@ function doIt() {
 		--exclude "configs" --exclude ".gitignore" --exclude ".editorconfig" \
 		-avh --no-perms . ~;
 
+	mkdir -p ~/.config/karabiner
+	cp configs/karabiner-elements/karabiner.json ~/.config/karabiner
 	source ~/.bash_profile;
 }
 
