@@ -137,6 +137,10 @@ brew cask install font-roboto-mono
 brew cask install font-source-code-pro
 brew cask install font-fira-code
 
+# tmux
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+
 # Very important
 brew install cowsay
 brew install fortune
