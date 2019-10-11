@@ -104,4 +104,4 @@ for key, func in pairs(grid_shortcuts) do
 	hotkey.bind(mash, key, func)
 end
 
-alert.show(" 🎩\n 💀")
+alert.show(" 👑\n 💀")
