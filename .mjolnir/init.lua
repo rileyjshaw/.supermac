@@ -65,6 +65,17 @@ function ifwin(fn)
 	end
 end
 
+function toggle_desktop_visibility()
+	local handle = io.popen("defaults read com.apple.finder CreateDesktop -bool")
+	local result = handle:read("*a")
+	handle:close()
+	if string.sub(result, 1, 1) == "1" then
+		os.execute("defaults write com.apple.finder CreateDesktop -bool false")
+	else os.execute("defaults write com.apple.finder CreateDesktop -bool true")
+	end
+	os.execute("killall Finder")
+end
+
 local grid_shortcuts = {
 	R = mjolnir.reload,
 	[";"] = ifwin(grid.snap),
@@ -85,6 +96,7 @@ local grid_shortcuts = {
 	K = function() change_granularity(false, -1) end,
 	L = function() change_granularity(true, -1) end,
 -- Q reserved for Sip
+	V = toggle_desktop_visibility,
 	["0"] = function() reset_granularity() alert.show(GRIDWIDTH.." x "..GRIDHEIGHT) end
 }
 
