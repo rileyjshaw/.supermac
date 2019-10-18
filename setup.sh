@@ -92,6 +92,7 @@ brew cask install \
   iterm2 \
   keka \
   keybase \
+	wireshark \
   visual-studio-code \
   ;
 
