@@ -91,10 +91,11 @@ local grid_shortcuts = {
 	space = ifwin(grid.maximize_window),
 	F = ifwin(grid.pushwindow_nextscreen),
 	C = ifwin(function(win) grid.set(win, centerpoint(), win:screen()) end),
-	H = function() change_granularity(true, 1) end,
-	J = function() change_granularity(false, 1) end,
-	K = function() change_granularity(false, -1) end,
-	L = function() change_granularity(true, -1) end,
+-- Change number of window snap-points using vim bindings
+	H = function() change_granularity(true, -1) end,
+	J = function() change_granularity(false, -1) end,
+	K = function() change_granularity(false, 1) end,
+	L = function() change_granularity(true, 1) end,
 -- Q reserved for Sip
 	V = toggle_desktop_visibility,
 	["0"] = function() reset_granularity() alert.show(GRIDWIDTH.." x "..GRIDHEIGHT) end
