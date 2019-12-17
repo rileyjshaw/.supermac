@@ -73,6 +73,9 @@ brew install tmux
 brew install tree
 brew install vim
 
+# Install Vundle for Vim.
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 # Install image_optim deps.
 brew install advancecomp gifsicle jhead jpegoptim jpeg optipng pngcrush pngquant jonof/kenutils/pngout
 
