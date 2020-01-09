@@ -84,6 +84,7 @@ git config --global user.email rileyjshaw@gmail.com
 git config --global user.name "Riley Shaw"
 git config --global core.editor vim
 git lfs install
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 # Install some cask apps.
 brew cask install \
