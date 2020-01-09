@@ -65,7 +65,7 @@ brew install lua
 brew install luarocks
 brew install lynx
 brew install nvm
-brew install python
+brew install pyenv
 brew install rbenv
 brew install ruby-build
 brew install the_silver_searcher
@@ -100,8 +100,10 @@ sudo gem install bundler # TODO(riley): Do this w/o sudo
 # Set up luarocks
 echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luarocks52/config-5.2.lua
 
-# Install some Python packages
-pip3 install Pygments
+# Set up pyenv and install some Python packages
+pyenv install 3.7.4
+pyenv global 3.7.4
+pip install Pygments
 
 # Install node packages
 mkdir ~/.nvm
