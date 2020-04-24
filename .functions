@@ -252,3 +252,12 @@ function asciify-prompt() {
 function wifi-password() {
 	security find-generic-password -D "AirPort network password" -a "${1:-`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`}" -gw;
 }
+
+# Wait for Mozilla staging server to update, then alert
+function allizom() {
+	until curl -sI https://voice.allizom.org | grep "X-Release-Version: $1";
+	do
+		sleep 20;
+	done
+	say "The staging server has updated."
+}
