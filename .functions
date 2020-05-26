@@ -253,13 +253,24 @@ function wifi-password() {
 	security find-generic-password -D "AirPort network password" -a "${1:-`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`}" -gw;
 }
 
-# Wait for Mozilla staging server to update, then alert
+# Wait for Mozilla staging server to update, then alert; -p to check prod instead
 function allizom() {
-	until curl -sI https://voice.allizom.org | grep "X-Release-Version: $1";
-	do
-		sleep 20;
+	local url="https://voice.allizom.org"
+	local environment="staging"
+	local OPTIND opt
+	while getopts ":p" opt; do
+		case ${opt} in
+			p) url="https://voice.mozilla.org"
+			   environment="production";;
+		esac
 	done
-	say "The staging server has updated."
+	shift "$((OPTIND - 1))"
+
+	until curl -sI $url | grep "X-Release-Version: $1"; do
+		echo "sleeping… $url $environment"
+		sleep 20
+	done
+	say "The $environment server has updated."
 }
 
 # Attach to the Common Voice DB monitor
