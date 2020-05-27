@@ -45,6 +45,8 @@ brew install findutils
 brew install gnu-sed --with-default-names
 # Install Bash 4.
 brew install bash
+# Install some other useful utilities.
+brew install rename
 # Add the new shell to the list of allowed shells
 sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 # Change to the new shell (restart required before this will work)
