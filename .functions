@@ -267,7 +267,6 @@ function allizom() {
 	shift "$((OPTIND - 1))"
 
 	until curl -sI $url | grep "X-Release-Version: $1"; do
-		echo "sleeping… $url $environment"
 		sleep 20
 	done
 	say "The $environment server has updated."
