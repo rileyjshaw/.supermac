@@ -41,3 +41,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads it...
+
+# Ruby too
+export PATH="/usr/local/opt/ruby/bin:$PATH"
