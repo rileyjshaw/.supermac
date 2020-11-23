@@ -163,8 +163,8 @@ brew cask install \
 # Very important.
 brew install cowsay
 brew install fortune
+brew install lolcat
 brew install sl
-gem install lolcat
 
 # Remove outdated versions from the cellar.
 brew cleanup
@@ -179,7 +179,7 @@ curl https://raw.githubusercontent.com/arcticicestudio/nord-terminal-app/develop
 # pygments and cat
 curl https://raw.githubusercontent.com/lewisacidic/nord-pygments/master/nord_pygments.py -o $SUPERMAC/external/Nord.py
 
-lolcat cowsay "Woo! You're done setup. Now run ./bootstrap.sh"
+cowsay | lolcat "Woo! You're done setup. Now run ./bootstrap.sh"
 
 echo
 echo "To set up terminal colors,"
