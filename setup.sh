@@ -21,7 +21,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Install homebrew
 if ! brew --help >/dev/null 2>&1; then
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 # Make sure we’re using the latest Homebrew.
@@ -52,17 +52,13 @@ sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 # Change to the new shell (restart required before this will work)
 chsh -s /usr/local/bin/bash
 
-brew tap homebrew/versions
-brew install bash-completion2
-
-# Install `wget` with IRI support.
-brew install wget --with-iri
-
 brew install ack
+brew install bash-completion2
+brew install ffmpeg
 brew install git
 brew install git-lfs
 brew install glances
-brew install hub
+brew install gh
 brew install lua
 brew install luarocks
 brew install lynx
@@ -74,6 +70,7 @@ brew install the_silver_searcher
 brew install tmux
 brew install tree
 brew install vim
+brew install wget
 
 # Install Vundle for Vim.
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -85,27 +82,45 @@ brew install advancecomp gifsicle jhead jpegoptim jpeg optipng pngcrush pngquant
 git config --global user.email rileyjshaw@gmail.com
 git config --global user.name "Riley Shaw"
 git config --global core.editor vim
+git config --global pull.rebase true
 git lfs install
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+gh auth login
+gh config set editor vim
 
 # Install some cask apps.
 brew cask install \
+  bartender \
+  bettertouchtool \
+  calibre \
+  caskroom/versions/firefoxdeveloperedition \
+  cyberduck \
+  dropbox \
+  google-chrome \
+  istat-menus \
   iterm2 \
+  karabiner-elements \
   keka \
   keybase \
-	wireshark \
+  lastpass \
+  mjolnir \
+  signal \
+  spotify \
   visual-studio-code \
+  vlc \
+	wireshark \
   ;
 
 # Setup rbenv
-sudo gem install bundler # TODO(riley): Do this w/o sudo
+rbenv init
+gem install bundler
 
 # Set up luarocks
 echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luarocks52/config-5.2.lua
 
 # Set up pyenv and install some Python packages
-pyenv install 3.7.4
-pyenv global 3.7.4
+pyenv install 3.9.0
+pyenv global 3.9.0
 pip install Pygments
 
 # Install node packages
@@ -123,7 +138,6 @@ brew link --overwrite node
 brew pin node
 
 # Install mjolnir window manager and dependencies
-brew cask install mjolnir karabiner-elements
 luarocks install mjolnir.alert
 luarocks install mjolnir.application
 luarocks install mjolnir.bg.grid
@@ -133,20 +147,19 @@ SUPERPATH=$(readlink -f -- "$0") # This script file
 SUPERMAC=$(dirname "$SUPERPATH")
 
 # Remap caps lock -> hyper key (ctrl+alt+cmd)
-brew cask install karabiner-elements
 cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
 # Fonts
 brew tap homebrew/cask-fonts
-brew cask install font-roboto-mono
-brew cask install font-source-code-pro
-brew cask install font-fira-code
+brew cask install \
+  font-fira-code \
+  font-hack-nerd-font \
+  font-inconsolata \
+  font-roboto-mono \
+  font-source-code-pro \
+  ;
 
-# tmux
-if "test ! -d ~/.tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
-
-# Very important
+# Very important.
 brew install cowsay
 brew install fortune
 brew install sl
@@ -165,12 +178,12 @@ curl https://raw.githubusercontent.com/arcticicestudio/nord-terminal-app/develop
 # pygments and cat
 curl https://raw.githubusercontent.com/lewisacidic/nord-pygments/master/nord_pygments.py -o $SUPERMAC/external/Nord.py
 
-lolcat cowsay "Woo! You're done setup."
+lolcat cowsay "Woo! You're done setup. Now run ./bootstrap.sh"
 
 echo
 echo "To set up terminal colors,"
 echo " - From iTerm2 > Preferences > Profiles > Colors, select $SUPERMAC/external/Nord.itermcolors"
 echo " - From terminal.app > Preferences > Profile, select $SUPERMAC/external/Nord.terminal"
 echo " - Audit $SUPERMAC/external/Nord.py, then run:"
-echo "   sudo cp $SUPERMAC/external/Nord.py $(brew --prefix)/lib/python3.7/site-packages/pygments/styles
+echo "   sudo cp $SUPERMAC/external/Nord.py $(brew --prefix)/lib/python3.7/site-packages/pygments/styles"
 echo

@@ -70,9 +70,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias brb=afk
 alias zzz="pmset sleepnow"
 
-# Add a bunch of commands to git, from https://github.com/github/hub
-eval "$(hub alias -s)"
-
 # Make music
 alias bytebeat="sox -traw -r8000 -b8 -e unsigned-integer - -tcoreaudio"
 
