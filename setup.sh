@@ -89,11 +89,12 @@ gh auth login
 gh config set editor vim
 
 # Install some cask apps.
+brew tap homebrew/cask-versions
 brew cask install \
   bartender \
   bettertouchtool \
   calibre \
-  caskroom/versions/firefoxdeveloperedition \
+  homebrew/cask-versions/firefox-developer-edition \
   cyberduck \
   dropbox \
   google-chrome \
@@ -108,7 +109,7 @@ brew cask install \
   spotify \
   visual-studio-code \
   vlc \
-	wireshark \
+  wireshark \
   ;
 
 # Setup rbenv
