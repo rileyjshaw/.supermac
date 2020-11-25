@@ -93,6 +93,7 @@ gh config set editor vim
 # Install some cask apps.
 brew tap homebrew/cask-versions
 brew cask install \
+  arduino \
   bartender \
   bettertouchtool \
   calibre \
