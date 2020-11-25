@@ -61,6 +61,7 @@ brew install git
 brew install git-lfs
 brew install glances
 brew install gh
+brew install hub
 brew install lua
 brew install luarocks
 brew install lynx
