@@ -30,6 +30,8 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+mkdir ~/code
+
 ###
 # Install command-line tools using Homebrew
 #####
