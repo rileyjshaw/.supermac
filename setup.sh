@@ -111,6 +111,7 @@ brew cask install \
   mjolnir \
   signal \
   spotify \
+  sunvox \
   visual-studio-code \
   vlc \
   wireshark \
