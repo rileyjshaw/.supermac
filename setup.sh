@@ -62,6 +62,7 @@ brew install git-lfs
 brew install glances
 brew install gh
 brew install hub
+brew install imagemagick
 brew install lua
 brew install luarocks
 brew install lynx
@@ -102,6 +103,7 @@ brew cask install \
   cyberduck \
   dropbox \
   google-chrome \
+  imageoptim \
   istat-menus \
   iterm2 \
   karabiner-elements \
@@ -116,6 +118,8 @@ brew cask install \
   vlc \
   wireshark \
   ;
+
+brew install imageoptim-cli
 
 # Setup rbenv
 rbenv init
