@@ -111,6 +111,7 @@ brew cask install \
   keybase \
   lastpass \
   mjolnir \
+  postman \
   signal \
   spotify \
   sunvox \
