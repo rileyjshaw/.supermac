@@ -94,7 +94,7 @@ gh config set editor vim
 
 # Install some cask apps.
 brew tap homebrew/cask-versions
-brew cask install \
+brew install --cask \
   arduino \
   bartender \
   bettertouchtool \
@@ -162,7 +162,7 @@ cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
 # Fonts
 brew tap homebrew/cask-fonts
-brew cask install \
+brew install --cask \
   font-fira-code \
   font-hack-nerd-font \
   font-inconsolata \
