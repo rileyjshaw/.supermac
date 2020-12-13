@@ -109,6 +109,7 @@ brew install --cask \
   karabiner-elements \
   keka \
   keybase \
+  kicad \
   lastpass \
   mjolnir \
   postman \
