@@ -128,9 +128,6 @@ brew install imageoptim-cli
 rbenv init
 gem install bundler
 
-# Set up luarocks
-echo 'rocks_servers = { "http://rocks.moonscript.org" }' >> /usr/local/etc/luarocks52/config-5.2.lua
-
 # Set up pyenv and install some Python packages
 pyenv install 3.9.0
 pyenv global 3.9.0
