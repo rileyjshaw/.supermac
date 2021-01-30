@@ -67,6 +67,7 @@ brew install lua
 brew install luarocks
 brew install lynx
 brew install nvm
+brew install postgresql
 brew install pyenv
 brew install rbenv
 brew install ruby-build
@@ -100,10 +101,11 @@ brew install --cask \
   bartender \
   bettertouchtool \
   calibre \
-  homebrew/cask-versions/firefox-developer-edition \
   cyberduck \
+  dbeaver-community \
   dropbox \
   google-chrome \
+  homebrew/cask-versions/firefox-developer-edition \
   imageoptim \
   istat-menus \
   iterm2 \
