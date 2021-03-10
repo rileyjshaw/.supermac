@@ -56,7 +56,6 @@ chsh -s /usr/local/bin/bash
 
 brew install ack
 brew install bash-completion2
-brew install ffmpeg
 brew install git
 brew install git-lfs
 brew install glances
@@ -77,6 +76,9 @@ brew install tmux
 brew install tree
 brew install vim
 brew install wget
+
+brew tap homebrew-ffmpeg/ffmpeg
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac --HEAD
 
 # Install Vundle for Vim.
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
