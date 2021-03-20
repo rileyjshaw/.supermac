@@ -99,6 +99,7 @@ gh config set editor vim
 # Install some cask apps.
 brew tap homebrew/cask-versions
 brew install --cask \
+  anki \
   arduino \
   bartender \
   bettertouchtool \
