@@ -32,7 +32,7 @@ prompt_git() {
 			git update-index --really-refresh -q &>/dev/null;
 
 			# Check how far ahead we are from upstream.
-			if branch=$(git symbolic-ref --short -q HEAD); then if [[ $(git remote) ]]; then
+			if branch=$(git symbolic-ref --short -q HEAD); then if [[ $(git remote) ]]; then if echo "$(git status -sb)" | grep -qF "..."; then
 				read commitsBehind commitsAhead <<<$(git rev-list --left-right --count @{u}...);
 
 				case $commitsBehind in
@@ -106,7 +106,7 @@ prompt_git() {
 						commitsAhead="$1₊₊ "
 						;;
 				esac
-			fi; fi;
+			fi; fi; fi;
 
 			# Check for uncommitted changes in the index.
 			if ! $(git diff --quiet --ignore-submodules --cached); then
