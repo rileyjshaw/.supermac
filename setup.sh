@@ -76,6 +76,10 @@ brew install tmux
 brew install tree
 brew install vim
 brew install wget
+brew install woff2
+
+brew tap bramstein/webfonttools
+brew install sfnt2woff
 
 brew tap homebrew-ffmpeg/ffmpeg
 brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac --HEAD
@@ -147,7 +151,7 @@ source $(brew --prefix nvm)/nvm.sh
 nvm install node
 nvm alias default node
 nvm use default
-npm i -g http-server npm-check-updates yarn
+npm i -g http-server npm-check-updates yarn glyphhanger
 brew uninstall node --ignore-dependencies
 mkdir /usr/local/Cellar/node
 ln -s ~/.nvm/versions/node/$(nvm current)/ /usr/local/Cellar/node
