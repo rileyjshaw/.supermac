@@ -21,7 +21,7 @@ if not griderr or not windowerr or not hotkeyerr or not alerterr then
 	print_if_not_table(fnutils)
 end
 
-mash = {"cmd", "alt", "ctrl"}
+hyper = {"cmd", "alt", "ctrl", "shift"}
 MARGIN = 2
 GRIDWIDTH = 12
 GRIDHEIGHT = 9
@@ -105,7 +105,7 @@ local grid_shortcuts = {
 }
 
 for key, func in pairs(grid_shortcuts) do
-	hotkey.bind(mash, key, func)
+	hotkey.bind(hyper, key, func)
 end
 
 alert.show(" 👑\n 💀")
