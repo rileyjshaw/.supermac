@@ -32,6 +32,15 @@ function hey() {
 function hi() {
 	hey "$HOME/code/$1";
 }
+# …with autocomplete!
+_cmd() {
+	local cur projects
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	projects=$(ls ~/code/)
+	COMPREPLY=( $(compgen -W "${projects}" -- ${cur}) )
+}
+complete -F _cmd hi
 
 # Determine size of a file or total size of a directory
 function fs() {
