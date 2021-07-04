@@ -9,10 +9,6 @@ function numSuffix() {
 
 function day() { date "+%A the %-d$(numSuffix %d)"; }
 function week() { date +%V; }
-# requires coreutils (brew install)
-function daysalive() {
-	echo $(( ($(gdate -u +%s) - $(gdate -ud "1991-10-05" +%s)) /60/60/24 ));
-}
 
 function center() {
 	col=$(( ($(tput cols) - ${#1}) / 2));
@@ -30,7 +26,7 @@ fi;
 
 function mort() {
 	echo -n $light_grey
-	center "Day `daysalive`.";
+	center "Day `~/.daysalive.sh`.";
 	center "Week `week` of this year.";
 	center "It is `day`.";
 	echo $reset;
