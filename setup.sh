@@ -55,7 +55,7 @@ sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
 chsh -s /usr/local/bin/bash
 
 brew install ack
-brew install bash-completion2
+brew install bash-completion@2
 brew install git
 brew install git-lfs
 brew install glances
