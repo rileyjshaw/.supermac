@@ -271,33 +271,3 @@ function asciify-prompt() {
 function wifi-password() {
 	security find-generic-password -D "AirPort network password" -a "${1:-`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`}" -gw;
 }
-
-# Wait for Mozilla staging server to update, then alert; -p to check prod instead
-function allizom() {
-	local url="https://voice.allizom.org"
-	local environment="staging"
-	local OPTIND opt
-	while getopts ":p" opt; do
-		case ${opt} in
-			p) url="https://voice.mozilla.org"
-			   environment="production";;
-		esac
-	done
-	shift "$((OPTIND - 1))"
-
-	until curl -sI $url | grep "X-Release-Version: $1"; do
-		sleep 20
-	done
-	say "The $environment server has updated."
-}
-
-# Attach to the Common Voice DB monitor
-function cvdb () {
-	local cvhost cvpass cvdbm cvpod
-	read cvdbm cvpod <<< $(kubectl get pods -n voice-prod | sort | sed -n 's/\(voice-prod-[[:graph:]]*\).*$/\1/p; s/\(db-monitor-[[:graph:]]*\).*$/\1/p' | head -2)
-	read cvhost cvpass <<< $(kubectl -n voice-prod exec -it "$cvpod" -c web -- printenv | sed -n 's/CV_MYSQLHOST=\(.*\)$/\1/p; s/CV_MYSQLPASS=\(.*\)$/\1/p')
-	echo -e "DB Monitor:\t$cvdbm\nPod:\t\t$cvpod\nHost:\t\t$cvhost\nPassword:\t$cvpass"
-	echo -e "\nAccess with:\tmysql -u admin voice -p -h $cvhost"
-	echo -e "…or was it:\tmysql -u admin voice -p -h $cvpass\n"
-	kubectl -n voice-prod exec -it "$cvdbm" bash
-}
