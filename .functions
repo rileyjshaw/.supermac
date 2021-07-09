@@ -40,24 +40,33 @@ function up() {
 	done
 }
 
-# Open a project, eg. `hey ~/.supermac`
-function hey() {
-	cd "$1" && code .;
-}
-
 # Open a project relative to the ~/code directory, eg. `hi rileyjshaw`
 function hi() {
-	hey "$HOME/code/$1";
+	if [ $# == 0 ]
+	then
+		echo hi!;
+	else
+		tmux new-window -c "$HOME/code/$1" -n "$1" \; \
+			split-window -c "$HOME/code/$1" -h \; \
+			split-window -c "$HOME/code/$1" -v \; \
+			send-keys "code ." C-m \; \
+			clock \; \
+			select-pane -t 0;
+	fi
 }
 # …with autocomplete!
-_cmd() {
+_hi() {
 	local cur projects
-	COMPREPLY=()
-	cur="${COMP_WORDS[COMP_CWORD]}"
-	projects=$(ls ~/code/)
-	COMPREPLY=( $(compgen -W "${projects}" -- ${cur}) )
+	cur="${COMP_WORDS[COMP_CWORD]}";
+
+	if [ $COMP_CWORD == 1 ]; then
+		projects=$(ls ~/code/);
+		COMPREPLY=( $(compgen -W "${projects}" -- ${cur}) );
+	else
+		COMPREPLY=();
+	fi
 }
-complete -F _cmd hi
+complete -F _hi hi
 
 # Determine size of a file or total size of a directory
 function fs() {
@@ -93,7 +102,7 @@ function json() {
 }
 
 # Run `dig` and display the most useful info
-function digga() {
+function digg() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
