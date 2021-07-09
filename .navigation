@@ -40,10 +40,6 @@ function fs() {
 		du $arg .[^.]* *;
 	fi;
 }
-# clear the screen for real (command + k)
-function cls() {
-	osascript -e 'tell application "System Events" to keystroke "k" using command down';
-}
 # change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
