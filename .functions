@@ -23,6 +23,23 @@ function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
+# cd to root of repository.
+function up() {
+	old_pwd="$PWD";
+	while [ 1 ]; do
+		cd ..;
+		if [ "$PWD" == "/" ]; then
+			cd "$old_pwd";
+			return 1;
+		fi
+		for repo in ".git" ".hg"; do
+			if [ -d "$repo" ]; then
+				return 0;
+			fi
+		done
+	done
+}
+
 # Open a project, eg. `hey ~/.supermac`
 function hey() {
 	cd "$1" && code .;
