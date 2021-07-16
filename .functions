@@ -52,7 +52,7 @@ function hi() {
 	then
 		echo hi!;
 	else
-		tmux new-window -c "$HOME/code/$1" -n "$1" \; \
+		tmux new-window -c "$HOME/code/$1" -n "${1%/}" \; \
 			split-window -c "$HOME/code/$1" -h \; \
 			split-window -c "$HOME/code/$1" -v \; \
 			send-keys "code ." C-m \; \
