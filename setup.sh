@@ -128,6 +128,7 @@ brew install --cask \
   signal \
   spotify \
   sunvox \
+  vcv-rack \
   visual-studio-code \
   vlc \
   wireshark \
