@@ -45,3 +45,7 @@ eval "$(rbenv init -)"
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads it...
 
+# If Orca is built, add it to the path
+if [ -x ~/code/Orca-c/build/orca ]; then
+  export PATH="$HOME/code/Orca-c/build:$PATH"
+fi
