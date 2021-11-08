@@ -71,6 +71,7 @@ brew install pyenv
 brew install rbenv
 brew install ruby-build
 brew install shellcheck
+brew install svn
 brew install the_silver_searcher
 brew install tmux
 brew install tree
