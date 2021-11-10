@@ -45,14 +45,14 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, also `g`-prefixed.
 brew install gnu-sed
-# Install Bash 4.
+# Install Bash 5.
 brew install bash
 # Install some other useful utilities.
 brew install rename
 # Add the new shell to the list of allowed shells
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
 # Change to the new shell (restart required before this will work)
-chsh -s /usr/local/bin/bash
+chsh -s /opt/homebrew/bin/bash
 
 brew install ack
 brew install bash-completion@2

@@ -4,6 +4,8 @@ export PATH="$HOME/.local/bin:$PATH";
 
 # Add sbin to $PATH for homebrew
 export PATH="/usr/local/sbin:$PATH";
+# Also add this for M1 Macs
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Lemme code
 export EDITOR='vim'
