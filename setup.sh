@@ -197,7 +197,7 @@ brew cleanup
 
 [[ -d $SUPERMAC/external ]] || mkdir $SUPERMAC/external
 
-# Theme the planet with Tomorrow Night Eighties
+# Theme the planet with Nord
 # iterm2
 curl https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors -o $SUPERMAC/external/Nord.itermcolors
 # terminal.app
