@@ -43,8 +43,8 @@ sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-# Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+# Install GNU `sed`, also `g`-prefixed.
+brew install gnu-sed
 # Install Bash 4.
 brew install bash
 # Install some other useful utilities.
