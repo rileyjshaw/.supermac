@@ -205,7 +205,7 @@ curl https://raw.githubusercontent.com/arcticicestudio/nord-terminal-app/develop
 # pygments and cat
 curl https://raw.githubusercontent.com/lewisacidic/nord-pygments/master/nord_pygments.py -o $SUPERMAC/external/Nord.py
 
-cowsay | lolcat "Woo! You're done setup. Now run ./bootstrap.sh"
+cowsay | echo "Woo! You're done setup. Now run ./bootstrap.sh" | lolcat
 
 echo
 echo "To set up terminal colors,"
