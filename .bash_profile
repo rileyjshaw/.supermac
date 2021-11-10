@@ -66,4 +66,4 @@ fi
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 # heroku autocomplete setup
-HEROKU_AC_BASH_SETUP_PATH=/Users/moth/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
+HEROKU_AC_BASH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
