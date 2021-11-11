@@ -127,12 +127,17 @@ brew install --cask \
   mjolnir \
   postman \
   signal \
+  slack \
   spotify \
+  steam \
   sunvox \
+  touchdesigner \
   vcv-rack \
   visual-studio-code \
   vlc \
   wireshark \
+  zulip \
+  zoom \
   ;
 
 brew install imageoptim-cli
