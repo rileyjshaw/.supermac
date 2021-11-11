@@ -79,6 +79,8 @@ brew install vim
 brew install wget
 brew install woff2
 
+brew services start postgresql
+
 brew tap bramstein/webfonttools
 brew install sfnt2woff
 
