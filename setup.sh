@@ -87,6 +87,9 @@ brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac --HEAD
 
 brew tap heroku/brew && brew install heroku
 
+# Install tpm for tmux.
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Install Vundle for Vim.
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
