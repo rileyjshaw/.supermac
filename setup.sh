@@ -147,8 +147,8 @@ rbenv init
 gem install bundler
 
 # Set up pyenv and install some Python packages
-pyenv install 3.9.0
-pyenv global 3.9.0
+pyenv install 3.10.0
+pyenv global 3.10.0
 pip install Pygments
 
 # Install node packages
