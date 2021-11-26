@@ -131,6 +131,7 @@ brew install --cask \
   lastpass \
   mjolnir \
   postman \
+  qbittorrent \
   signal \
   slack \
   spotify \
