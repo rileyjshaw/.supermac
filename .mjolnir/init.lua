@@ -1,5 +1,5 @@
-package.path = package.path .. ';/usr/local/share/lua/5.4/?.lua'
-package.cpath = package.cpath .. ';/usr/local/lib/lua/5.4/?.so'
+package.path = package.path .. ';/usr/local/share/lua/5.4/?.lua;/opt/homebrew/share/lua/5.4/?.lua'
+package.cpath = package.cpath .. ';/usr/local/lib/lua/5.4/?.so;/opt/homebrew/lib/lua/5.4/?.so'
 
 local griderr, grid  = pcall(function() return require "mjolnir.bg.grid" end)
 local windowerr, window = pcall(function() return require "mjolnir.window" end)
