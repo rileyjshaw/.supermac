@@ -160,6 +160,7 @@ pip install Pygments
 mkdir ~/.nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+mkdir ~/.nvm
 nvm install node
 nvm alias default node
 nvm use default
