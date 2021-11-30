@@ -185,7 +185,7 @@ luarocks install mjolnir.screen
 SUPERPATH=$(readlink -f -- "$0") # This script file
 SUPERMAC=$(dirname "$SUPERPATH")
 
-# Remap caps lock -> hyper key (ctrl+alt+cmd)
+# Remap caps lock -> hyper key, etc.
 cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
 # Fonts

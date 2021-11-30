@@ -39,10 +39,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
+                                        "key_code": "tab"
                                     }
                                 ],
                                 "type": "basic"
@@ -121,7 +118,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "illumination_decrement"
+                            "consumer_key_code": "dictation"
                         }
                     ]
                 },
@@ -131,7 +128,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "illumination_increment"
+                            "key_code": "f13"
                         }
                     ]
                 },
