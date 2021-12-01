@@ -146,6 +146,11 @@ brew install --cask \
   zoom \
   ;
 
+# Install QMK CLI and QMK Toolbox.
+brew install qmk/qmk/qmk
+brew tap homebrew/cask-drivers
+brew install --cask qmk-toolbox
+
 brew install imageoptim-cli
 
 # Setup rbenv
