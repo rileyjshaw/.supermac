@@ -132,6 +132,7 @@ brew install --cask \
   mjolnir \
   postman \
   qbittorrent \
+  sdformatter \
   signal \
   slack \
   spotify \
