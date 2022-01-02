@@ -39,8 +39,6 @@ mkdir ~/code
 brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 
-# Install some other useful utilities like `sponge`.
-brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, also `g`-prefixed.
@@ -66,6 +64,7 @@ brew install lua
 brew install luarocks
 brew install lynx
 brew install nvm
+brew install parallel
 brew install postgresql
 brew install pyenv
 brew install rbenv
