@@ -117,7 +117,6 @@ brew install --cask \
   calibre \
   cyberduck \
   dbeaver-community \
-  dropbox \
   google-chrome \
   homebrew/cask-versions/firefox-developer-edition \
   imageoptim \
@@ -137,6 +136,7 @@ brew install --cask \
   spotify \
   steam \
   sunvox \
+  syncthing \
   touchdesigner \
   vcv-rack \
   visual-studio-code \
