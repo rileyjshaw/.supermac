@@ -10,16 +10,16 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Prevent the startup sound
+# Prevent the startup sound.
 sudo nvram SystemAudioVolume=" "
 
-# Avoid creation of .DS_Store and AppleDouble files
-# on network volumes
+# Avoid creation of .DS_Store and AppleDouble files.
+# on network volumes.
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-# on USB volumes
+# on USB volumes.
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# Install homebrew
+# Install homebrew.
 if ! brew --help >/dev/null 2>&1; then
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
@@ -33,7 +33,7 @@ brew upgrade
 mkdir ~/code
 
 ###
-# Install command-line tools using Homebrew
+# Install command-line tools using Homebrew.
 #####
 # Install GNU core utilities (those that come with OS X are outdated).
 brew install coreutils
@@ -47,9 +47,9 @@ brew install gnu-sed
 brew install bash
 # Install some other useful utilities.
 brew install rename
-# Add the new shell to the list of allowed shells
+# Add the new shell to the list of allowed shells.
 sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
-# Change to the new shell (restart required before this will work)
+# Change to the new shell (restart required before this will work).
 chsh -s /opt/homebrew/bin/bash
 
 brew install ack
@@ -153,16 +153,16 @@ brew install --cask qmk-toolbox
 
 brew install imageoptim-cli
 
-# Setup rbenv
+# Setup rbenv.
 rbenv init
 gem install bundler
 
-# Set up pyenv and install some Python packages
+# Set up pyenv and install some Python packages.
 pyenv install 3.10.0
 pyenv global 3.10.0
 pip install Pygments
 
-# Install node packages
+# Install node packages.
 mkdir ~/.nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
@@ -177,7 +177,7 @@ ln -s ~/.nvm/versions/node/$(nvm current)/ /usr/local/Cellar/node
 brew link --overwrite node
 brew pin node
 
-# Install mjolnir window manager and dependencies
+# Install mjolnir window manager and dependencies.
 luarocks install mjolnir.alert
 luarocks install mjolnir.application
 luarocks install mjolnir.bg.grid
@@ -187,13 +187,13 @@ luarocks install mjolnir.geometry
 luarocks install mjolnir.keycodes
 luarocks install mjolnir.screen
 
-SUPERPATH=$(readlink -f -- "$0") # This script file
+SUPERPATH=$(readlink -f -- "$0") # This script file.
 SUPERMAC=$(dirname "$SUPERPATH")
 
 # Remap caps lock -> hyper key, etc.
 cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
-# Fonts
+# Fonts.
 brew tap homebrew/cask-fonts
 brew install --cask \
   font-fira-code \
@@ -214,7 +214,7 @@ brew cleanup
 
 [[ -d $SUPERMAC/external ]] || mkdir $SUPERMAC/external
 
-# Theme the planet with Nord
+# Theme the planet with Nord.
 # iterm2
 curl https://raw.githubusercontent.com/arcticicestudio/nord-iterm2/develop/src/xml/Nord.itermcolors -o $SUPERMAC/external/Nord.itermcolors
 # terminal.app
