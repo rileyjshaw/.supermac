@@ -54,10 +54,11 @@ chsh -s /opt/homebrew/bin/bash
 
 brew install ack
 brew install bash-completion@2
+brew install gh
 brew install git
 brew install git-lfs
 brew install glances
-brew install gh
+brew install gnupg
 brew install hub
 brew install imagemagick
 brew install lua
