@@ -114,6 +114,7 @@ brew install --cask \
   arduino \
   bartender \
   bettertouchtool \
+  blackhole-2ch \ # For routing audio between apps.
   calibre \
   cyberduck \
   dbeaver-community \
