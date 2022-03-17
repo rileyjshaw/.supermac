@@ -169,8 +169,8 @@ mkdir ~/.nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 mkdir ~/.nvm
-nvm install node
-nvm alias default node
+nvm install --lts
+nvm alias default lts/*
 nvm use default
 npm i -g http-server npm-check-updates yarn glyphhanger
 brew uninstall node --ignore-dependencies
