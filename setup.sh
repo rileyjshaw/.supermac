@@ -172,7 +172,7 @@ mkdir ~/.nvm
 nvm install --lts
 nvm alias default lts/*
 nvm use default
-npm i -g http-server npm-check-updates yarn glyphhanger
+npm i -g http-server npm-check-updates yarn glyphhanger tldr
 brew uninstall node --ignore-dependencies
 mkdir /usr/local/Cellar/node
 ln -s ~/.nvm/versions/node/$(nvm current)/ /usr/local/Cellar/node
