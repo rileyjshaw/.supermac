@@ -65,6 +65,7 @@ brew install lua
 brew install luarocks
 brew install lynx
 brew install nvm
+brew install pandoc
 brew install parallel
 brew install postgresql
 brew install pyenv
