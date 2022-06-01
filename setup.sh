@@ -79,6 +79,7 @@ brew install tree
 brew install vim
 brew install wget
 brew install woff2
+brew install youtube-dl
 
 brew services start postgresql
 
@@ -117,6 +118,7 @@ brew install --cask \
   bartender \
   bettertouchtool \
   blackhole-2ch \ # For routing audio between apps.
+  blender \
   calibre \
   cyberduck \
   dbeaver-community \
