@@ -64,6 +64,7 @@ brew install imagemagick
 brew install lua
 brew install luarocks
 brew install lynx
+brew install ngrok/ngrok/ngrok
 brew install nvm
 brew install pandoc
 brew install parallel
