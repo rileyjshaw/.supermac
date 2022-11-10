@@ -123,6 +123,7 @@ brew install --cask \
   calibre \
   cyberduck \
   dbeaver-community \
+  fig \
   google-chrome \
   homebrew/cask-versions/firefox-developer-edition \
   imageoptim \
