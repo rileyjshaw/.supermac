@@ -367,6 +367,8 @@
 	</dict>
 	<key>Default Bookmark Guid</key>
 	<string>F30F4211-0099-465D-AB9A-F1E2C7AD95B3</string>
+	<key>EnableAPIServer</key>
+	<true/>
 	<key>EnableDivisionView</key>
 	<false/>
 	<key>HapticFeedbackForEsc</key>
@@ -379,7 +381,7 @@
 			<key>ASCII Anti Aliased</key>
 			<true/>
 			<key>ASCII Ligatures</key>
-			<true/>
+			<false/>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -620,6 +622,8 @@
 				<key>Red Component</key>
 				<real>0.20252507925033569</real>
 			</dict>
+			<key>Blink Allowed</key>
+			<false/>
 			<key>Blinking Cursor</key>
 			<true/>
 			<key>Blur</key>
@@ -684,6 +688,8 @@
 				<key>Red Component</key>
 				<real>0.17621420323848724</real>
 			</dict>
+			<key>Cursor Type</key>
+			<integer>2</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -1031,7 +1037,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>FiraCode-Regular 12</string>
+			<string>RobotoMono-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1108,7 +1114,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1</real>
+			<real>0.84999999999999998</real>
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
@@ -1879,7 +1885,7 @@
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SoundForEsc</key>
