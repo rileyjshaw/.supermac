@@ -116,6 +116,7 @@ brew tap homebrew/cask-versions
 brew install --cask \
   anki \
   arduino \
+  audacity \
   bartender \
   bettertouchtool \
   blackhole-2ch \ # For routing audio between apps.
