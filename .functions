@@ -53,11 +53,11 @@ function hi() {
 		echo hi!;
 	else
 		tmux new-window -c "$HOME/code/$1" -n "${1%/}" \; \
-			split-window -c "$HOME/code/$1" -h \; \
-			split-window -c "$HOME/code/$1" -v \; \
-			send-keys "code ." C-m \; \
+			split-window -h -c "$HOME/code/$1" \; \
+			split-window -v -c "$HOME/code/$1" \; \
 			clock \; \
 			select-pane -t 0;
+		code "$HOME/code/$1" && smerge "$HOME/code/$1";
 	fi
 }
 # …with autocomplete!
