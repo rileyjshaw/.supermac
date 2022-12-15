@@ -87,8 +87,10 @@ brew services start postgresql
 brew tap bramstein/webfonttools
 brew install sfnt2woff
 
+# Install ffmpeg with H.264, HEVC, and AV1 support.
 brew tap homebrew-ffmpeg/ffmpeg
-brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac --HEAD
+brew options homebrew-ffmpeg/ffmpeg/ffmpeg
+brew install homebrew-ffmpeg/ffmpeg/ffmpeg --with-fdk-aac --with-rav1e --HEAD
 
 brew tap heroku/brew && brew install heroku
 
