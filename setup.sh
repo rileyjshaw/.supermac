@@ -139,7 +139,6 @@ brew install --cask \
   lastpass \
   mjolnir \
   postman \
-  qbittorrent \
   sdformatter \
   signal \
   slack \
@@ -148,6 +147,7 @@ brew install --cask \
   sunvox \
   syncthing \
   touchdesigner \
+  transmission \
   vcv-rack \
   visual-studio-code \
   vlc \
