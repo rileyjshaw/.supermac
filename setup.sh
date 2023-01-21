@@ -57,6 +57,7 @@ brew install bash-completion@2
 brew install gh
 brew install git
 brew install git-lfs
+brew install gist
 brew install glances
 brew install gnupg
 brew install hub
