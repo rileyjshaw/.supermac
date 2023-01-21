@@ -61,6 +61,7 @@ brew install glances
 brew install gnupg
 brew install hub
 brew install imagemagick
+brew install jq
 brew install lua
 brew install luarocks
 brew install lynx
