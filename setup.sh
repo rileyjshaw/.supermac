@@ -234,6 +234,16 @@ curl https://raw.githubusercontent.com/arcticicestudio/nord-terminal-app/develop
 # pygments and cat
 curl https://raw.githubusercontent.com/lewisacidic/nord-pygments/master/nord_pygments.py -o $SUPERMAC/external/Nord.py
 
+# Set up gister.
+cd ~
+mkdir -p .local
+mkdir -p code/gists
+git clone https://github.com/weakish/gister.git
+cd gister
+echo 'PREFIX = ~/.local' > config.mk
+make install
+echo Gister is installed, run \"gister init\" and \"gister sync\" to finish setup.
+
 cowsay | echo "Woo! You're done setup. Now run ./bootstrap.sh" | lolcat
 
 echo
