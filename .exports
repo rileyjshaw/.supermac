@@ -42,8 +42,6 @@ export GREP_OPTIONS='--color=auto';
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # And a few extras from setup.sh
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 

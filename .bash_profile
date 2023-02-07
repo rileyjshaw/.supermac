@@ -61,13 +61,15 @@ if command -v pyenv 1>/dev/null 2>&1; then
 	eval "$(pyenv init -)"
 fi
 
-# `ruby-build` installs a non-Homebrew OpenSSL for each Ruby version installed
-# and these are never upgraded.
-#
-# To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following:
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+# Chruby
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# Enable auto-switching of Rubies specified by .ruby-version files
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+# Start up Ruby 3.1.3.
+# NOTE: This will become outdated.
+chruby ruby-3.1.3
 
-# heroku autocomplete setup
+# Heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
 
 . "$HOME/.cargo/env"

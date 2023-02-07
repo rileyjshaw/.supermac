@@ -72,8 +72,6 @@ brew install pandoc
 brew install parallel
 brew install postgresql
 brew install pyenv
-brew install rbenv
-brew install ruby-build
 brew install shellcheck
 brew install svn
 brew install the_silver_searcher
@@ -126,6 +124,7 @@ brew install --cask \
   blackhole-2ch \ # For routing audio between apps.
   blender \
   calibre \
+  chruby \
   cyberduck \
   dbeaver-community \
   fig \
@@ -141,6 +140,7 @@ brew install --cask \
   lastpass \
   mjolnir \
   postman \
+  ruby-install \
   sdformatter \
   signal \
   slack \
@@ -165,8 +165,9 @@ brew install --cask qmk-toolbox
 
 brew install imageoptim-cli
 
-# Setup rbenv.
-rbenv init
+# Install a working Ruby version.
+# NOTE: This will become outdated.
+ruby-install 3.1.3
 gem install bundler
 
 # Set up pyenv and install some Python packages.
