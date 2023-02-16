@@ -80,28 +80,35 @@ function toggle_desktop_visibility()
 end
 
 local grid_shortcuts = {
-	R = mjolnir.reload,
+	-- Move the active window
 	[";"] = ifwin(grid.snap),
 	up = ifwin(grid.pushwindow_up),
 	left = ifwin(grid.pushwindow_left),
 	right = ifwin(grid.pushwindow_right),
 	down = ifwin(grid.pushwindow_down),
--- 4 reserved for OSX screenshot
+	F = ifwin(grid.pushwindow_nextscreen),
+	-- Resize the active window
 	A = ifwin(grid.resizewindow_thinner),
 	D = ifwin(grid.resizewindow_wider),
 	W = ifwin(grid.resizewindow_shorter),
 	S = ifwin(grid.resizewindow_taller),
 	space = ifwin(grid.maximize_window),
-	F = ifwin(grid.pushwindow_nextscreen),
-	C = ifwin(function(win) grid.set(win, centerpoint(), win:screen()) end),
--- Change number of window snap-points using vim bindings
-	H = function() change_granularity(true, -1) end,
-	J = function() change_granularity(false, -1) end,
-	K = function() change_granularity(false, 1) end,
-	L = function() change_granularity(true, 1) end,
--- Q reserved for Sip
-	V = toggle_desktop_visibility,
-	["0"] = function() reset_granularity() alert.show(GRIDWIDTH.." x "..GRIDHEIGHT) end
+	E = ifwin(function(win) grid.set(win, centerpoint(), win:screen()) end),
+	-- Change number of grid snap-points
+	["["] = function() change_granularity(true, -1) end,
+	["-"] = function() change_granularity(false, -1) end,
+	["="] = function() change_granularity(false, 1) end,
+	["]"] = function() change_granularity(true, 1) end,
+	["0"] = function() reset_granularity() alert.show(GRIDWIDTH.." x "..GRIDHEIGHT) end,
+	-- Misc
+	R = mjolnir.reload,
+	H = toggle_desktop_visibility,
+	-- ` reserved for Dash
+	-- 4 reserved for CleanShot scrolling capture
+	-- T reserved for Pixelsnap
+	-- P reserved for Pika
+	-- C reserved for Paste
+	-- V reserved for Paste
 }
 
 for key, func in pairs(grid_shortcuts) do
