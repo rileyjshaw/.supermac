@@ -108,6 +108,7 @@ git config --global user.email rileyjshaw@gmail.com
 git config --global user.name "Riley Shaw"
 git config --global core.editor vim
 git config --global pull.rebase true
+git config --global hub.protocol ssh
 git lfs install
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 gh auth login
