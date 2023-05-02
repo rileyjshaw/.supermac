@@ -66,7 +66,7 @@ _hi() {
 	cur="${COMP_WORDS[COMP_CWORD]}";
 
 	if [ $COMP_CWORD == 1 ]; then
-		projects=$(ls ~/code/);
+		projects=$(ls "$HOME/code/");
 		COMPREPLY=( $(compgen -W "${projects}" -- ${cur}) );
 	else
 		COMPREPLY=();
@@ -112,33 +112,6 @@ function digg() {
 	dig +nocmd "$1" any +multiline +noall +answer;
 }
 
-# UTF-8-encode a string of Unicode symbols
-function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u);
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
-}
-
-# Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\"";
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
-}
-
-# Get a character’s Unicode code point
-function codepoint() {
-	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
-}
-
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
 function getcertnames() {
@@ -170,26 +143,6 @@ function getcertnames() {
 	else
 		echo "ERROR: Certificate not found.";
 		return 1;
-	fi;
-}
-
-# `s` with no arguments opens the current directory in Sublime Text, otherwise
-# opens the given location
-function s() {
-	if [ $# -eq 0 ]; then
-		subl .;
-	else
-		subl "$@";
-	fi;
-}
-
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
-# opens the given location
-function a() {
-	if [ $# -eq 0 ]; then
-		atom .;
-	else
-		atom "$@";
 	fi;
 }
 
