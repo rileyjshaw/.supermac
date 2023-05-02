@@ -1,6 +1,5 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
-export PATH="$HOME/.local/bin:$PATH";
 
 # Add sbin to $PATH for homebrew
 export PATH="/usr/local/sbin:$PATH";
@@ -9,9 +8,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Lemme code
 export EDITOR='vim'
-
-# Anaconda
-export PATH="$PATH:/usr/local/miniconda3/bin"
 
 # https://github.com/mathiasbynens/dotfiles/blob/master/.exports
 # Enable persistent REPL history for `node`.
@@ -38,14 +34,23 @@ export MANPAGER='less -X';
 # Always enable colored `grep` output.
 export GREP_OPTIONS='--color=auto';
 
-# Ruby too
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+# Node
+export NVM_DIR="$HOME/.nvm"
 
-# And a few extras from setup.sh
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/lamp/Library/pnpm"
+export PATH="$PATH:$PNPM_HOME"
+# pnpm end
+
+# Anaconda
+export PATH="$PATH:/usr/local/miniconda3/bin"
+
+# Ruby too
+export PATH="$PATH:/usr/local/opt/ruby/bin"
 
 # If Orca is built, add it to the path
 if [ -x ~/code/Orca-c/build/orca ]; then
-  export PATH="$HOME/code/Orca-c/build:$PATH"
+  export PATH="$PATH:$HOME/code/Orca-c/build"
 fi

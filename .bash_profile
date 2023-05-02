@@ -1,5 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.pre.bash"
+
 # Spin up the dream machine
 for file in ~/.{aliases,bash_prompt,exports,functions,mort,navigation,secrets}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -24,11 +25,11 @@ for option in autocd globstar; do
 done;
 
 # Add tab completion for many Bash commands
-[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh";
 
-# NVM
-[ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"  # This loads it...
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
+# Loads nvm and its bash completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then

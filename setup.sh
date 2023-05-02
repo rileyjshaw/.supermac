@@ -67,7 +67,6 @@ brew install lua
 brew install luarocks
 brew install lynx
 brew install ngrok/ngrok/ngrok
-brew install nvm
 brew install pandoc
 brew install parallel
 brew install postgresql
@@ -176,20 +175,18 @@ pyenv install 3.10.0
 pyenv global 3.10.0
 pip install Pygments
 
-# Install node packages.
-mkdir ~/.nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-mkdir ~/.nvm
+# Install nvm and node packages.
+git_latest_version() {
+   basename $(curl -fs -o/dev/null -w %{redirect_url} https://github.com/$1/releases/latest)
+}
+latest_nvm_version_number=$(git_latest_version nvm-sh/nvm);
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/${latest_nvm_version_number}/install.sh | bash
+unset latest_nvm_version_number
+
 nvm install --lts
 nvm alias default lts/*
 nvm use default
-npm i -g http-server npm-check-updates yarn glyphhanger tldr
-brew uninstall node --ignore-dependencies
-mkdir /usr/local/Cellar/node
-ln -s ~/.nvm/versions/node/$(nvm current)/ /usr/local/Cellar/node
-brew link --overwrite node
-brew pin node
+npm i -g http-server npm-check-updates yarn pnpm glyphhanger tldr
 
 # Install mjolnir window manager and dependencies.
 luarocks install mjolnir.alert
