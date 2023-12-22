@@ -6,6 +6,7 @@ local windowerr, window = pcall(function() return require "mjolnir.window" end)
 local hotkeyerr, hotkey = pcall(function() return require "mjolnir.hotkey" end)
 local alerterr, alert = pcall(function() return require "mjolnir.alert" end)
 local fnutilserr, fnutils = pcall(function() return require "mjolnir.fnutils" end)
+local applicationerr, application = pcall(function() return require "mjolnir.application" end)
 
 function print_if_not_table(var)
 	if not(type(var) == "table") then print(var) end
@@ -19,6 +20,7 @@ if not griderr or not windowerr or not hotkeyerr or not alerterr then
 	print_if_not_table(hotkey)
 	print_if_not_table(alert)
 	print_if_not_table(fnutils)
+	print_if_not_table(application)
 end
 
 hyper = {"cmd", "alt", "ctrl", "shift"}
@@ -100,6 +102,10 @@ local grid_shortcuts = {
 	["="] = function() change_granularity(false, 1) end,
 	["]"] = function() change_granularity(true, 1) end,
 	["0"] = function() reset_granularity() alert.show(GRIDWIDTH.." x "..GRIDHEIGHT) end,
+	-- First Order Retrievability (maxbittker.com/first-order-retrievability, thanks Max!)
+	["1"] = function() application.launchorfocus("Visual Studio Code") end,
+	["2"] = function() application.launchorfocus("Firefox Developer Edition") end,
+	["3"] = function() application.launchorfocus("iTerm") end,
 	-- Misc
 	R = mjolnir.reload,
 	H = toggle_desktop_visibility,
