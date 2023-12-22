@@ -1,10 +1,8 @@
 *$py.class
-*.7z
 *.com
 *.dll
 *.dmg
 *.exe
-*.gz
 *.iso
 *.jar
 *.log
@@ -12,11 +10,8 @@
 *.pid
 *.py[cod]
 *.pyc
-*.rar
 *.sql
 *.sqlite
-*.tar
-*.zip
 .apdisk
 .AppleDB
 .AppleDesktop
