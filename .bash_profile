@@ -70,9 +70,6 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 # NOTE: This will become outdated.
 chruby ruby-3.1.3
 
-# Heroku autocomplete setup
-HEROKU_AC_BASH_SETUP_PATH=/Users/`whoami`/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH
-
 . "$HOME/.cargo/env"
 
 # Fig post block. Keep at the bottom of this file.
