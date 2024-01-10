@@ -28,8 +28,6 @@
 .Trashes
 .VolumeIcon.icns
 __pycache__/
-Icon
-Icon?
 logs
 npm-debug.log*
 pip-log.txt
