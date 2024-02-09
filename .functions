@@ -48,29 +48,39 @@ function up() {
 
 # Open a project relative to the ~/code directory, eg. `hi rileyjshaw`
 function hi() {
-	if [ $# == 0 ]
-	then
-		echo hi!;
-	else
-		tmux new-window -c "$HOME/code/$1" -n "${1%/}" \; \
-			split-window -h -c "$HOME/code/$1" \; \
-			split-window -v -c "$HOME/code/$1" \; \
-			clock \; \
-			select-pane -t 0;
-		code "$HOME/code/$1" && smerge "$HOME/code/$1";
-	fi
+    if [ $# -eq 0 ]; then
+        echo "hi!"
+    else
+        local target_dir="$HOME/code/$1"
+        tmux new-window -c "$target_dir" -n "${1%/}" \; \
+            split-window -h -c "$target_dir" \; \
+            split-window -v -c "$target_dir" \; \
+            clock \; \
+            select-pane -t 0
+        code "$target_dir"
+
+        # Check if it's a Git repository and call smerge if it is.
+        if git -C "$target_dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+            smerge -b "$target_dir"
+        fi
+    fi
 }
 # …with autocomplete!
 _hi() {
-	local cur projects
-	cur="${COMP_WORDS[COMP_CWORD]}";
+    local cur base_dir
+    cur="${COMP_WORDS[COMP_CWORD]}"
 
-	if [ $COMP_CWORD == 1 ]; then
-		projects=$(ls "$HOME/code/");
-		COMPREPLY=( $(compgen -W "${projects}" -- ${cur}) );
-	else
-		COMPREPLY=();
-	fi
+    # Determine the base directory for completion.
+    if [[ "$cur" == */* ]]; then
+        base_dir="$HOME/code/${cur%/*}"
+    else
+        base_dir="$HOME/code"
+    fi
+
+    # Generate completions relative to the base directory.
+    local IFS=$'\n' # Handle directory names with spaces.
+    COMPREPLY=($(compgen -d "$base_dir/${cur##*/}" -- "${cur}") )
+    COMPREPLY=("${COMPREPLY[@]#"$HOME/code/"}") # Remove base path for display.
 }
 complete -F _hi hi
 
