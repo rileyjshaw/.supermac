@@ -1,9 +1,9 @@
 function numSuffix() {
-	case ${1: -1} in
-		1|21|31) echo "st";;
-		2|22)    echo "nd";;
-		3|23)    echo "rd";;
-		*)       echo "th";;
+	case ${1: -2} in
+		01|21|31) echo "st";;
+		02|22)    echo "nd";;
+		03|23)    echo "rd";;
+		*)        echo "th";;
 	esac;
 }
 
