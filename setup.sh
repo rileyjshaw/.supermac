@@ -135,7 +135,6 @@ brew install --cask \
   keka \
   keybase \
   kicad \
-  lastpass \
   mjolnir \
   postman \
   ruby-install \
