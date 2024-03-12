@@ -59,6 +59,7 @@ brew install git
 brew install git-lfs
 brew install gist
 brew install glances
+brew install glslang
 brew install gnupg
 brew install hub
 brew install imagemagick
