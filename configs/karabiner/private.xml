@@ -5,7 +5,7 @@
 
 		<appendix>OS X doesn't have a Hyper Key.</appendix>
 		<appendix>It does, however, have a Caps Lock key that I never use.</appendix>
-		<appendix>This maps Caps Lock to Control + Option + Command (Mjolnir meta key).</appendix>
+		<appendix>This maps Caps Lock to Control + Option + Command (meta key).</appendix>
 		<appendix>Shift + Caps Lock does the regular thing.</appendix>
 		<appendix>A double-tap of Caps Lock maps to Control + Option + Space (open iTerm2 drawer).</appendix>
 

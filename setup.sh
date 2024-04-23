@@ -128,6 +128,7 @@ brew install --cask \
   dbeaver-community \
   fig \
   google-chrome \
+  hammerspoon \
   homebrew/cask-versions/firefox-developer-edition \
   imageoptim \
   istat-menus \
@@ -136,7 +137,6 @@ brew install --cask \
   keka \
   keybase \
   kicad \
-  mjolnir \
   postman \
   ruby-install \
   sdformatter \
@@ -185,16 +185,6 @@ nvm install --lts
 nvm alias default lts/*
 nvm use default
 npm i -g http-server npm-check-updates yarn pnpm glyphhanger tldr
-
-# Install mjolnir window manager and dependencies.
-luarocks install mjolnir.alert
-luarocks install mjolnir.application
-luarocks install mjolnir.bg.grid
-luarocks install mjolnir.hotkey
-luarocks install mjolnir.fnutils
-luarocks install mjolnir.geometry
-luarocks install mjolnir.keycodes
-luarocks install mjolnir.screen
 
 SUPERPATH=$(readlink -f -- "$0") # This script file.
 SUPERMAC=$(dirname "$SUPERPATH")
