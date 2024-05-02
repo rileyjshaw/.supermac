@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.pre.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.pre.bash"
-
 # Spin up the dream machine
 for file in ~/.{aliases,bash_prompt,exports,functions,mort,navigation,secrets}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -71,6 +68,3 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
 
 . "$HOME/.cargo/env"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/bash_profile.post.bash" ]] && builtin source "$HOME/.fig/shell/bash_profile.post.bash"

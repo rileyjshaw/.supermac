@@ -126,7 +126,6 @@ brew install --cask \
   chruby \
   cyberduck \
   dbeaver-community \
-  fig \
   google-chrome \
   hammerspoon \
   homebrew/cask-versions/firefox-developer-edition \
