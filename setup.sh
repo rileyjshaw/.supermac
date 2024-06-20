@@ -113,7 +113,6 @@ gh auth login
 gh config set editor vim
 
 # Install some cask apps.
-brew tap homebrew/cask-versions
 brew install --cask \
   anki \
   arduino \
@@ -192,7 +191,6 @@ SUPERMAC=$(dirname "$SUPERPATH")
 cp $SUPERMAC/configs/karabiner-elements/karabiner.json ~/.config/karabiner/
 
 # Fonts.
-brew tap homebrew/cask-fonts
 brew install --cask \
   font-fira-code \
   font-hack-nerd-font \
