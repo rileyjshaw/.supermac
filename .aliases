@@ -80,3 +80,6 @@ alias remp="delp"
 
 # Clear tmux pane
 alias cls="clear && tmux clear-history"
+
+# git
+alias g="git"

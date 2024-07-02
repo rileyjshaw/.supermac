@@ -4,20 +4,43 @@ complete -d cd
 ###
 # Shortcuts
 #####
-# popular directories
+# Popular directories
 alias h="cd ~"
 alias ~="cd ~" # `cd` is probably faster to type though
 alias c="cd ~/code"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
-# quicker navigation
+# Quicker navigation
 alias cd..='cd ..'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias -- -="cd -"
+
+# Move up n directories, or to root of repository if no argument is provided
+function up() {
+	limit=$1
+	initial_pwd="$PWD";
+	while [ $# == 0 ] || [ "$limit" -gt 0 ]; do
+		cd ..;
+		if [ "$PWD" == "/" ]; then
+			cd "$initial_pwd";
+			echo "Too high."
+			return 1;
+		fi
+		if [ $# == 0 ]; then
+			for repo in ".git" ".hg"; do
+				if [ -d "$repo" ]; then
+					return 0;
+				fi
+			done
+		else
+			((limit--))
+		fi
+	done
+}
 
 # mkdir and cd into it
 function mcd() {
@@ -27,7 +50,7 @@ function mcd() {
 function cl() {
 	cd "$@" && ls;
 }
-# determine size of a file or total size of a directory
+# Determine size of a file or total size of a directory
 function fs() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
@@ -40,12 +63,10 @@ function fs() {
 		du $arg .[^.]* *;
 	fi;
 }
-# change working directory to the top-most Finder window location
+# Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
-# git
-alias g="git"
 
 ###
 # Apps
