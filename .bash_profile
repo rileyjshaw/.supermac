@@ -1,5 +1,5 @@
 # Spin up the dream machine
-for file in ~/.{aliases,bash_prompt,exports,functions,mort,navigation,secrets}; do
+for file in ~/.{aliases,bash_prompt,exports,functions,navigation,secrets}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

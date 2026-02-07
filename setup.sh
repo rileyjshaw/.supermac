@@ -67,6 +67,7 @@ brew install jq
 brew install lua
 brew install luarocks
 brew install lynx
+brew install mozjpeg
 brew install ngrok/ngrok/ngrok
 brew install pandoc
 brew install parallel
