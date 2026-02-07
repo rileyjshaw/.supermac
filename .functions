@@ -225,7 +225,7 @@ function wifi-password() {
 	security find-generic-password -D "AirPort network password" -a "${1:-`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`}" -gw;
 }
 
-for file in ~/.{deheic,mort}; do
+for file in ~/.{deheic.sh,mort}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
