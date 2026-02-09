@@ -128,7 +128,7 @@ brew install --cask \
   dbeaver-community \
   google-chrome \
   hammerspoon \
-  homebrew/cask-versions/firefox-developer-edition \
+  firefox@developer-edition \
   imageoptim \
   istat-menus \
   iterm2 \
@@ -157,7 +157,6 @@ brew install --cask \
 
 # Install QMK CLI and QMK Toolbox.
 brew install qmk/qmk/qmk
-brew tap homebrew/cask-drivers
 brew install --cask qmk-toolbox
 
 brew install imageoptim-cli
