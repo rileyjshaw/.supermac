@@ -47,12 +47,12 @@ complete -W "NSGlobalDomain" defaults;
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
-if [ -d '/Users/rileyshaw/google-cloud-sdk' ]; then
+if [ -d "$HOME/google-cloud-sdk" ]; then
 	# The next line updates PATH for the Google Cloud SDK.
-	source '/Users/rileyshaw/google-cloud-sdk/path.bash.inc'
+	source "$HOME/google-cloud-sdk/path.bash.inc"
 
 	# The next line enables shell command completion for gcloud.
-	source '/Users/rileyshaw/google-cloud-sdk/completion.bash.inc'
+	source "$HOME/google-cloud-sdk/completion.bash.inc"
 fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
