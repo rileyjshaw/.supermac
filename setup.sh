@@ -125,7 +125,6 @@ brew install --cask \
   calibre \
   chruby \
   cyberduck \
-  dbeaver-community \
   google-chrome \
   hammerspoon \
   firefox@developer-edition \
